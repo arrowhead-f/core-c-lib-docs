@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <meta charset="utf-8">
   <meta name="generator" content="Doxygen 1.9.5"/>
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <title>ah_base/include/ah/task.h File Reference - Eclipse Arrowhead™ Core C Libraries</title>
@@ -15,22 +16,22 @@
 /* @license-end */
 </script>
   <script>
-      window.addEventListener("load", () => {
-          let contents = document.querySelector("body > div.contents");
-          if (!contents) {
-            return;
-          }
-          document.querySelectorAll("#top ul > li.current > a > span").forEach((selectedMenuItem) => {
-            contents.classList.add(selectedMenuItem.innerText.trim().toLowerCase().replace(/\s+/, "-"));
-          });
-        for (let i = contents.childNodes.length - 1; i >= 0; i -= 1) {
-          let childNode = contents.childNodes.item(i);
-          if ((childNode.nodeType === 3 && childNode.textContent.trim().length === 0)
-                  || (childNode.nodeType === 1 && childNode.classList.contains("textblock") && childNode.textContent.trim().length === 0)) {
-            childNode.remove();
-          }
-        }
+    window.addEventListener("load", () => {
+      let contents = document.querySelector("body > div.contents");
+      if (!contents) {
+        return;
+      }
+      document.querySelectorAll("#top ul > li.current > a > span").forEach((selectedMenuItem) => {
+        contents.classList.add(selectedMenuItem.innerText.trim().toLowerCase().replace(/\s+/, "-"));
       });
+      for (let i = contents.childNodes.length - 1; i >= 0; i -= 1) {
+        let childNode = contents.childNodes.item(i);
+        if ((childNode.nodeType === 3 && childNode.textContent.trim().length === 0)
+                || (childNode.nodeType === 1 && childNode.classList.contains("textblock") && childNode.textContent.trim().length === 0)) {
+          childNode.remove();
+        }
+      }
+    });
   </script>
   <link href="tabs.css" rel="stylesheet" type="text/css"/>
   <link href="DoxygenStyle.css" rel="stylesheet" type="text/css"/>
@@ -105,7 +106,7 @@ var searchBox = new SearchBox("searchBox", "search/",'.html');
 <div class="contents">
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p >Task scheduling. </p>
-<p >In this file, a data structure and a set of functions are provided for formulating and scheduling <em>tasks</em>, which are functions to be executed after certain <em>baselines</em>, which are specific points in time. No guarantees are given about how close to its baseline any given task will execute, only that it will execute at or after that baseline, as reported by the platform clock (see <a class="el" href="time_8h.html#a4f25b712cec7298026de5be5ad5997da" title="Gets the current time, as reported by the platform.">ah_time_now()</a>). Additionally, the event loop used to schedule any task in question must be executing at or after the baseline until the task is executed. </p>
+<p >A <em>task</em> is a function that is to be executed after a certain <em>baseline</em> with a certain <em>context</em>, concretely represented by a user data pointer. </p>
 </div>
 <p><a href="task_8h_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
@@ -360,6 +361,7 @@ Functions</h2></td></tr>
 <a class="el" href="err_8h.html#aa95f2476779b43aa0fb7b8dce7092e70">AH_ESTATE</a> - <em>task</em> is already scheduled and has not yet been cancelled or executed. </li>
 </ul>
 </dd></dl>
+<dl class="section warning"><dt>Warning</dt><dd>If the <a class="el" href="structah__loop.html" title="Event loop.">ah_loop</a> provided to <em>task</em> is not given opportunity to execute at or after <em>baseline</em>, as reported by <a class="el" href="time_8h.html#a4f25b712cec7298026de5be5ad5997da" title="Gets the current monotonic time, as reported by the platform.">ah_time_now()</a>, <em>task</em> will never be executed. Note, however, that <em>task</em> will be invoked with <a class="el" href="err_8h.html#a48e584f2f1aa328bd3eee0757611d609">AH_ECANCELED</a> if the event loop is terminated. For <em>task</em> to never be executed, the event loop must never be given enough time to execute after <em>baseline</em> and never be terminated. </dd></dl>
 
 </div>
 </div>

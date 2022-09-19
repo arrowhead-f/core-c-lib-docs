@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <meta charset="utf-8">
   <meta name="generator" content="Doxygen 1.9.5"/>
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <title>ah_base/include/ah/err.h File Reference - Eclipse Arrowhead™ Core C Libraries</title>
@@ -15,22 +16,22 @@
 /* @license-end */
 </script>
   <script>
-      window.addEventListener("load", () => {
-          let contents = document.querySelector("body > div.contents");
-          if (!contents) {
-            return;
-          }
-          document.querySelectorAll("#top ul > li.current > a > span").forEach((selectedMenuItem) => {
-            contents.classList.add(selectedMenuItem.innerText.trim().toLowerCase().replace(/\s+/, "-"));
-          });
-        for (let i = contents.childNodes.length - 1; i >= 0; i -= 1) {
-          let childNode = contents.childNodes.item(i);
-          if ((childNode.nodeType === 3 && childNode.textContent.trim().length === 0)
-                  || (childNode.nodeType === 1 && childNode.classList.contains("textblock") && childNode.textContent.trim().length === 0)) {
-            childNode.remove();
-          }
-        }
+    window.addEventListener("load", () => {
+      let contents = document.querySelector("body > div.contents");
+      if (!contents) {
+        return;
+      }
+      document.querySelectorAll("#top ul > li.current > a > span").forEach((selectedMenuItem) => {
+        contents.classList.add(selectedMenuItem.innerText.trim().toLowerCase().replace(/\s+/, "-"));
       });
+      for (let i = contents.childNodes.length - 1; i >= 0; i -= 1) {
+        let childNode = contents.childNodes.item(i);
+        if ((childNode.nodeType === 3 && childNode.textContent.trim().length === 0)
+                || (childNode.nodeType === 1 && childNode.classList.contains("textblock") && childNode.textContent.trim().length === 0)) {
+          childNode.remove();
+        }
+      }
+    });
   </script>
   <link href="tabs.css" rel="stylesheet" type="text/css"/>
   <link href="DoxygenStyle.css" rel="stylesheet" type="text/css"/>
@@ -104,8 +105,8 @@ var searchBox = new SearchBox("searchBox", "search/",'.html');
 <div class="contents">
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p >Error management. </p>
-<p >This file lists most, if not all, error codes that can be returned by the functions of this library and other libraries that depend on it.</p>
-<p >Apart from <a class="el" href="err_8h.html#af1346324d9368d43e1e103d395368306">AH_ENONE</a>, which indicates no error at all, and some custom error codes, all error codes listed here come directly from the platforms supported by this library. When a Core C library function invokes a platform function internally, the convention is for any errors that cannot be dealt with by the function to be passed on to the caller of the Core C function. As a consequence, many functions in this library return different error codes on different platforms. Every function dealing with error codes should list which of them only occur on some supported platforms. </p>
+<p >This file is meant to list every error code that could be returned or provided when the <a class="el" href="defs_8h.html#a746483e29fbbad8cb71e1b3875763ae2">ah_err_t</a> type is used as return or parameter type.</p>
+<p >Apart from a smaller set of error codes specific to this library, most codes come directly from the platforms supported by this library. In fact, the convention is for every platform error code to be propagated as-is to the user of this library. As a consequence, many functions in this library return different error codes on different platforms. However, as every function that may return error codes must list every code it could present, it should be trivial to handle. </p>
 </div>
 <p><a href="err_8h_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
@@ -116,6 +117,8 @@ Macros</h2></td></tr>
 <tr class="memdesc:af1346324d9368d43e1e103d395368306"><td class="mdescLeft">&#160;</td><td class="mdescRight">No error. <br /></td></tr>
 <tr class="separator:af1346324d9368d43e1e103d395368306"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr><td colspan="2"><div class="groupHeader">Custom Errors</div></td></tr>
+<tr><td colspan="2"><div class="groupText"><p >These error codes are specific to the base library and have no equivalents on its supported platforms. </p>
+</div></td></tr>
 <tr class="memitem:a1600ea0451fe4cb58ca302e8c9c443ae"><td class="memItemLeft" align="right" valign="top"><a id="a1600ea0451fe4cb58ca302e8c9c443ae" name="a1600ea0451fe4cb58ca302e8c9c443ae"></a>
 #define&#160;</td><td class="memItemRight" valign="bottom"><b>AH_EDEP</b>&#160;&#160;&#160;5405</td></tr>
 <tr class="memdesc:a1600ea0451fe4cb58ca302e8c9c443ae"><td class="mdescLeft">&#160;</td><td class="mdescRight">Consult dependency for error details. <br /></td></tr>
@@ -145,6 +148,8 @@ Macros</h2></td></tr>
 <tr class="memdesc:a7cf5011c680a591df888f256f0881dbd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Syntax invalid. <br /></td></tr>
 <tr class="separator:a7cf5011c680a591df888f256f0881dbd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr><td colspan="2"><div class="groupHeader">POSIX Errors</div></td></tr>
+<tr><td colspan="2"><div class="groupText"><p >These error codes originate from the POSIX specifications but are ported to all supported platforms. </p>
+</div></td></tr>
 <tr class="memitem:a75ab5c5050f2f0e8041ff9096d62173d"><td class="memItemLeft" align="right" valign="top"><a id="a75ab5c5050f2f0e8041ff9096d62173d" name="a75ab5c5050f2f0e8041ff9096d62173d"></a>
 #define&#160;</td><td class="memItemRight" valign="bottom"><b>AH_E2BIG</b>&#160;&#160;&#160;AH_I_ERR_ONE_OF(E2BIG, 5501)</td></tr>
 <tr class="memdesc:a75ab5c5050f2f0e8041ff9096d62173d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Argument list too long. <br /></td></tr>
@@ -486,6 +491,8 @@ Macros</h2></td></tr>
 <tr class="memdesc:a3c7b02632ddaa6a8f129c3dcf446d87d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Cross-device link. <br /></td></tr>
 <tr class="separator:a3c7b02632ddaa6a8f129c3dcf446d87d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr><td colspan="2"><div class="groupHeader">Darwin Errors</div></td></tr>
+<tr><td colspan="2"><div class="groupText"><p >These error codes could only ever be relevant on the Darwin platform. </p>
+</div></td></tr>
 <tr class="memitem:ad0dbb891096d79fefb5cbe636d1552e9"><td class="memItemLeft" align="right" valign="top"><a id="ad0dbb891096d79fefb5cbe636d1552e9" name="ad0dbb891096d79fefb5cbe636d1552e9"></a>
 #define&#160;</td><td class="memItemRight" valign="bottom"><b>AH_EBADARCH</b>&#160;&#160;&#160;EBADARCH</td></tr>
 <tr class="memdesc:ad0dbb891096d79fefb5cbe636d1552e9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Bad CPU type in executable. <br /></td></tr>
@@ -523,6 +530,8 @@ Macros</h2></td></tr>
 <tr class="memdesc:a56cde172df40f7b3117155025431b004"><td class="mdescLeft">&#160;</td><td class="mdescRight">Shared library version mismatch. <br /></td></tr>
 <tr class="separator:a56cde172df40f7b3117155025431b004"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr><td colspan="2"><div class="groupHeader">Linux Errors</div></td></tr>
+<tr><td colspan="2"><div class="groupText"><p >These error codes could only ever be relevant on the Linux platform. </p>
+</div></td></tr>
 <tr class="memitem:a3131d9b4539ce5901ff01802ce0525d1"><td class="memItemLeft" align="right" valign="top"><a id="a3131d9b4539ce5901ff01802ce0525d1" name="a3131d9b4539ce5901ff01802ce0525d1"></a>
 #define&#160;</td><td class="memItemRight" valign="bottom"><b>AH_ELIBACC</b>&#160;&#160;&#160;ELIBACC</td></tr>
 <tr class="memdesc:a3131d9b4539ce5901ff01802ce0525d1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Needed shared library inaccessible. <br /></td></tr>
@@ -560,6 +569,8 @@ Macros</h2></td></tr>
 <tr class="memdesc:a5469334b7057a9e3d15907802c2c7724"><td class="mdescLeft">&#160;</td><td class="mdescRight">Streams pipe error. <br /></td></tr>
 <tr class="separator:a5469334b7057a9e3d15907802c2c7724"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr><td colspan="2"><div class="groupHeader">Win32 Errors</div></td></tr>
+<tr><td colspan="2"><div class="groupText"><p >These error codes could only ever be relevant on the Win32 platform. </p>
+</div></td></tr>
 <tr class="memitem:a3992756ba96cff971f3b379f456e9d02"><td class="memItemLeft" align="right" valign="top"><a id="a3992756ba96cff971f3b379f456e9d02" name="a3992756ba96cff971f3b379f456e9d02"></a>
 #define&#160;</td><td class="memItemRight" valign="bottom"><b>AH_EDISCON</b>&#160;&#160;&#160;WSAEDISCON</td></tr>
 <tr class="memdesc:a3992756ba96cff971f3b379f456e9d02"><td class="mdescLeft">&#160;</td><td class="mdescRight">Disconneted. <br /></td></tr>

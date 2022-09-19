@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <meta charset="utf-8">
   <meta name="generator" content="Doxygen 1.9.5"/>
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <title>ah_base/include/ah/intrin.h File Reference - Eclipse Arrowhead™ Core C Libraries</title>
@@ -15,22 +16,22 @@
 /* @license-end */
 </script>
   <script>
-      window.addEventListener("load", () => {
-          let contents = document.querySelector("body > div.contents");
-          if (!contents) {
-            return;
-          }
-          document.querySelectorAll("#top ul > li.current > a > span").forEach((selectedMenuItem) => {
-            contents.classList.add(selectedMenuItem.innerText.trim().toLowerCase().replace(/\s+/, "-"));
-          });
-        for (let i = contents.childNodes.length - 1; i >= 0; i -= 1) {
-          let childNode = contents.childNodes.item(i);
-          if ((childNode.nodeType === 3 && childNode.textContent.trim().length === 0)
-                  || (childNode.nodeType === 1 && childNode.classList.contains("textblock") && childNode.textContent.trim().length === 0)) {
-            childNode.remove();
-          }
-        }
+    window.addEventListener("load", () => {
+      let contents = document.querySelector("body > div.contents");
+      if (!contents) {
+        return;
+      }
+      document.querySelectorAll("#top ul > li.current > a > span").forEach((selectedMenuItem) => {
+        contents.classList.add(selectedMenuItem.innerText.trim().toLowerCase().replace(/\s+/, "-"));
       });
+      for (let i = contents.childNodes.length - 1; i >= 0; i -= 1) {
+        let childNode = contents.childNodes.item(i);
+        if ((childNode.nodeType === 3 && childNode.textContent.trim().length === 0)
+                || (childNode.nodeType === 1 && childNode.classList.contains("textblock") && childNode.textContent.trim().length === 0)) {
+          childNode.remove();
+        }
+      }
+    });
   </script>
   <link href="tabs.css" rel="stylesheet" type="text/css"/>
   <link href="DoxygenStyle.css" rel="stylesheet" type="text/css"/>
@@ -103,24 +104,24 @@ var searchBox = new SearchBox("searchBox", "search/",'.html');
 <div class="contents">
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p >Compiler intrinsics. </p>
-<p >A compiler intrinsic is a special function provided by the compiler, causing it to optimize or add to its output. This file provides two categories of intrinsics, (1) such supported by all supported compilers and (2) those only supported by some supported compilers. The former category are prefixed with the usual "ah_", while the latter category have the slightly longer "ah_p_" prefix. </p>
+<p >A compiler intrinsic is a special function provided by the compiler, causing it to optimize or add to its output. This file provides two categories of intrinsics, (1) such supported by all supported compilers and (2) those only supported by GCC-compatible compilers. The former category are prefixed with the usual <code>ah_</code>, while the latter category have the slightly longer <code>ah_gcc_</code> prefix. </p>
 </div>
 <p><a href="intrin_8h_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="define-members" name="define-members"></a>
 Macros</h2></td></tr>
+<tr class="memitem:adb007a719718c4de92fe96a411cdc69d"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="intrin_8h.html#adb007a719718c4de92fe96a411cdc69d">ah_gcc_add_overflow</a>(a,  b,  result)</td></tr>
+<tr class="memdesc:adb007a719718c4de92fe96a411cdc69d"><td class="mdescLeft">&#160;</td><td class="mdescRight">[Clang, GCC] Adds <em>a</em> and <em>b</em>, storing the sum to <em>result</em>.  <a href="intrin_8h.html#adb007a719718c4de92fe96a411cdc69d">More...</a><br /></td></tr>
+<tr class="separator:adb007a719718c4de92fe96a411cdc69d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a23ac2db9f655728c495a4b724c838c35"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="intrin_8h.html#a23ac2db9f655728c495a4b724c838c35">ah_gcc_mul_overflow</a>(a,  b,  result)</td></tr>
+<tr class="memdesc:a23ac2db9f655728c495a4b724c838c35"><td class="mdescLeft">&#160;</td><td class="mdescRight">[Clang, GCC] Multiplties <em>a</em> and <em>b</em>, storing the product to <em>result</em>.  <a href="intrin_8h.html#a23ac2db9f655728c495a4b724c838c35">More...</a><br /></td></tr>
+<tr class="separator:a23ac2db9f655728c495a4b724c838c35"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6ddb60a0622c55c95b25ae8cedfe39f0"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="intrin_8h.html#a6ddb60a0622c55c95b25ae8cedfe39f0">ah_gcc_sub_overflow</a>(a,  b,  result)</td></tr>
+<tr class="memdesc:a6ddb60a0622c55c95b25ae8cedfe39f0"><td class="mdescLeft">&#160;</td><td class="mdescRight">[Clang, GCC] Subtracts <em>a</em> and <em>b</em>, storing the difference to <em>result</em>.  <a href="intrin_8h.html#a6ddb60a0622c55c95b25ae8cedfe39f0">More...</a><br /></td></tr>
+<tr class="separator:a6ddb60a0622c55c95b25ae8cedfe39f0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a08ffd7a47bf920762e8bf57ca84c3ae3"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="intrin_8h.html#a08ffd7a47bf920762e8bf57ca84c3ae3">ah_likely</a>(expr)</td></tr>
 <tr class="memdesc:a08ffd7a47bf920762e8bf57ca84c3ae3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Indicates that <em>expr</em> is most likely going to evaluate to <code>true</code>.  <a href="intrin_8h.html#a08ffd7a47bf920762e8bf57ca84c3ae3">More...</a><br /></td></tr>
 <tr class="separator:a08ffd7a47bf920762e8bf57ca84c3ae3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adcaab91f62e968467018e4971552f109"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="intrin_8h.html#adcaab91f62e968467018e4971552f109">ah_p_add_overflow</a>(a,  b,  result)</td></tr>
-<tr class="memdesc:adcaab91f62e968467018e4971552f109"><td class="mdescLeft">&#160;</td><td class="mdescRight">[Clang, GCC] Adds <em>a</em> and <em>b</em>, storing the sum to <em>result</em>.  <a href="intrin_8h.html#adcaab91f62e968467018e4971552f109">More...</a><br /></td></tr>
-<tr class="separator:adcaab91f62e968467018e4971552f109"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3159cd3c5a75c527bcb3aad7ca26a701"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="intrin_8h.html#a3159cd3c5a75c527bcb3aad7ca26a701">ah_p_mul_overflow</a>(a,  b,  result)</td></tr>
-<tr class="memdesc:a3159cd3c5a75c527bcb3aad7ca26a701"><td class="mdescLeft">&#160;</td><td class="mdescRight">[Clang, GCC] Multiplties <em>a</em> and <em>b</em>, storing the product to <em>result</em>.  <a href="intrin_8h.html#a3159cd3c5a75c527bcb3aad7ca26a701">More...</a><br /></td></tr>
-<tr class="separator:a3159cd3c5a75c527bcb3aad7ca26a701"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9197537baef3f8555cabff78080de78d"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="intrin_8h.html#a9197537baef3f8555cabff78080de78d">ah_p_sub_overflow</a>(a,  b,  result)</td></tr>
-<tr class="memdesc:a9197537baef3f8555cabff78080de78d"><td class="mdescLeft">&#160;</td><td class="mdescRight">[Clang, GCC] Subtracts <em>a</em> and <em>b</em>, storing the difference to <em>result</em>.  <a href="intrin_8h.html#a9197537baef3f8555cabff78080de78d">More...</a><br /></td></tr>
-<tr class="separator:a9197537baef3f8555cabff78080de78d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab6545906623a90a3161cffd133525071"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="intrin_8h.html#ab6545906623a90a3161cffd133525071">ah_trap</a>()</td></tr>
 <tr class="memdesc:ab6545906623a90a3161cffd133525071"><td class="mdescLeft">&#160;</td><td class="mdescRight">Traps execution, preventing the application process from progressing any further.  <a href="intrin_8h.html#ab6545906623a90a3161cffd133525071">More...</a><br /></td></tr>
 <tr class="separator:ab6545906623a90a3161cffd133525071"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -132,41 +133,14 @@ Macros</h2></td></tr>
 <tr class="separator:aeb2c8d40fb1f04ec29293998e6f0f8c5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Macro Definition Documentation</h2>
-<a id="a08ffd7a47bf920762e8bf57ca84c3ae3" name="a08ffd7a47bf920762e8bf57ca84c3ae3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a08ffd7a47bf920762e8bf57ca84c3ae3">&#9670;&#160;</a></span>ah_likely</h2>
+<a id="adb007a719718c4de92fe96a411cdc69d" name="adb007a719718c4de92fe96a411cdc69d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adb007a719718c4de92fe96a411cdc69d">&#9670;&#160;</a></span>ah_gcc_add_overflow</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define ah_likely</td>
-          <td>(</td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname">expr</td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Indicates that <em>expr</em> is most likely going to evaluate to <code>true</code>. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">expr</td><td>Arbitrary expression. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>Whatever <em>expr</em> returns. </dd></dl>
-
-</div>
-</div>
-<a id="adcaab91f62e968467018e4971552f109" name="adcaab91f62e968467018e4971552f109"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#adcaab91f62e968467018e4971552f109">&#9670;&#160;</a></span>ah_p_add_overflow</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define ah_p_add_overflow</td>
+          <td class="memname">#define ah_gcc_add_overflow</td>
           <td>(</td>
           <td class="paramtype">&#160;</td>
           <td class="paramname">a, </td>
@@ -192,6 +166,7 @@ Macros</h2></td></tr>
 </div><div class="memdoc">
 
 <p>[Clang, GCC] Adds <em>a</em> and <em>b</em>, storing the sum to <em>result</em>. </p>
+<p >Conceptually, <em>a</em> and <em>b</em> are both turned into infinite precision integer types before being added together. The function returns <code>true</code> if the result of the addition is outside the range representable by the type of the variable pointed at by <em>result</em>.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">a</td><td>Value of an arbitrary integer type. </td></tr>
@@ -204,14 +179,14 @@ Macros</h2></td></tr>
 
 </div>
 </div>
-<a id="a3159cd3c5a75c527bcb3aad7ca26a701" name="a3159cd3c5a75c527bcb3aad7ca26a701"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3159cd3c5a75c527bcb3aad7ca26a701">&#9670;&#160;</a></span>ah_p_mul_overflow</h2>
+<a id="a23ac2db9f655728c495a4b724c838c35" name="a23ac2db9f655728c495a4b724c838c35"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a23ac2db9f655728c495a4b724c838c35">&#9670;&#160;</a></span>ah_gcc_mul_overflow</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define ah_p_mul_overflow</td>
+          <td class="memname">#define ah_gcc_mul_overflow</td>
           <td>(</td>
           <td class="paramtype">&#160;</td>
           <td class="paramname">a, </td>
@@ -237,6 +212,7 @@ Macros</h2></td></tr>
 </div><div class="memdoc">
 
 <p>[Clang, GCC] Multiplties <em>a</em> and <em>b</em>, storing the product to <em>result</em>. </p>
+<p >Conceptually, <em>a</em> and <em>b</em> are both turned into infinite precision integer types before being multiplied. The function returns <code>true</code> if the result of the multiplication is outside the range representable by the type of the variable pointed at by <em>result</em>.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">a</td><td>Value of an arbitrary integer type. </td></tr>
@@ -249,14 +225,14 @@ Macros</h2></td></tr>
 
 </div>
 </div>
-<a id="a9197537baef3f8555cabff78080de78d" name="a9197537baef3f8555cabff78080de78d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9197537baef3f8555cabff78080de78d">&#9670;&#160;</a></span>ah_p_sub_overflow</h2>
+<a id="a6ddb60a0622c55c95b25ae8cedfe39f0" name="a6ddb60a0622c55c95b25ae8cedfe39f0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6ddb60a0622c55c95b25ae8cedfe39f0">&#9670;&#160;</a></span>ah_gcc_sub_overflow</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define ah_p_sub_overflow</td>
+          <td class="memname">#define ah_gcc_sub_overflow</td>
           <td>(</td>
           <td class="paramtype">&#160;</td>
           <td class="paramname">a, </td>
@@ -282,6 +258,7 @@ Macros</h2></td></tr>
 </div><div class="memdoc">
 
 <p>[Clang, GCC] Subtracts <em>a</em> and <em>b</em>, storing the difference to <em>result</em>. </p>
+<p >Conceptually, <em>a</em> and <em>b</em> are both turned into infinite precision integer types before <em>b</em> is subtracted from <em>a</em>. The function returns <code>true</code> if the result of the subtraction is outside the range representable by the type of the variable pointed at by <em>result</em>.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">a</td><td>Value of an arbitrary integer type. </td></tr>
@@ -291,6 +268,33 @@ Macros</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd><code>true</code> if the difference of <em>a</em> and <em>b</em> cannot be represented by <em>result</em>. <code>false</code> otherwise. </dd></dl>
+
+</div>
+</div>
+<a id="a08ffd7a47bf920762e8bf57ca84c3ae3" name="a08ffd7a47bf920762e8bf57ca84c3ae3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a08ffd7a47bf920762e8bf57ca84c3ae3">&#9670;&#160;</a></span>ah_likely</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define ah_likely</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">expr</td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Indicates that <em>expr</em> is most likely going to evaluate to <code>true</code>. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">expr</td><td>Arbitrary expression. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Whatever <em>expr</em> returns. </dd></dl>
 
 </div>
 </div>

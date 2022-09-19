@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <meta charset="utf-8">
   <meta name="generator" content="Doxygen 1.9.5"/>
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <title>ah_base/include/ah/time.h File Reference - Eclipse Arrowhead™ Core C Libraries</title>
@@ -15,22 +16,22 @@
 /* @license-end */
 </script>
   <script>
-      window.addEventListener("load", () => {
-          let contents = document.querySelector("body > div.contents");
-          if (!contents) {
-            return;
-          }
-          document.querySelectorAll("#top ul > li.current > a > span").forEach((selectedMenuItem) => {
-            contents.classList.add(selectedMenuItem.innerText.trim().toLowerCase().replace(/\s+/, "-"));
-          });
-        for (let i = contents.childNodes.length - 1; i >= 0; i -= 1) {
-          let childNode = contents.childNodes.item(i);
-          if ((childNode.nodeType === 3 && childNode.textContent.trim().length === 0)
-                  || (childNode.nodeType === 1 && childNode.classList.contains("textblock") && childNode.textContent.trim().length === 0)) {
-            childNode.remove();
-          }
-        }
+    window.addEventListener("load", () => {
+      let contents = document.querySelector("body > div.contents");
+      if (!contents) {
+        return;
+      }
+      document.querySelectorAll("#top ul > li.current > a > span").forEach((selectedMenuItem) => {
+        contents.classList.add(selectedMenuItem.innerText.trim().toLowerCase().replace(/\s+/, "-"));
       });
+      for (let i = contents.childNodes.length - 1; i >= 0; i -= 1) {
+        let childNode = contents.childNodes.item(i);
+        if ((childNode.nodeType === 3 && childNode.textContent.trim().length === 0)
+                || (childNode.nodeType === 1 && childNode.classList.contains("textblock") && childNode.textContent.trim().length === 0)) {
+          childNode.remove();
+        }
+      }
+    });
   </script>
   <link href="tabs.css" rel="stylesheet" type="text/css"/>
   <link href="DoxygenStyle.css" rel="stylesheet" type="text/css"/>
@@ -189,7 +190,7 @@ Functions</h2></td></tr>
 <tr class="memdesc:a5a19bd1c07a4e9bd7e0a19fbe80b118c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if <em>time</em> is the zero time.  <a href="time_8h.html#a5a19bd1c07a4e9bd7e0a19fbe80b118c">More...</a><br /></td></tr>
 <tr class="separator:a5a19bd1c07a4e9bd7e0a19fbe80b118c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4f25b712cec7298026de5be5ad5997da"><td class="memItemLeft" align="right" valign="top"><a class="el" href="defs_8h.html#a4a00eaa653b79c27bff40d48d658f86f">ah_extern</a> <a class="el" href="structah__time.html">ah_time_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="time_8h.html#a4f25b712cec7298026de5be5ad5997da">ah_time_now</a> (void)</td></tr>
-<tr class="memdesc:a4f25b712cec7298026de5be5ad5997da"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the current time, as reported by the platform.  <a href="time_8h.html#a4f25b712cec7298026de5be5ad5997da">More...</a><br /></td></tr>
+<tr class="memdesc:a4f25b712cec7298026de5be5ad5997da"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the current monotonic time, as reported by the platform.  <a href="time_8h.html#a4f25b712cec7298026de5be5ad5997da">More...</a><br /></td></tr>
 <tr class="separator:a4f25b712cec7298026de5be5ad5997da"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a32225f7c17cdcdb47fdabc357f203761"><td class="memItemLeft" align="right" valign="top"><a class="el" href="defs_8h.html#a4a00eaa653b79c27bff40d48d658f86f">ah_extern</a> <a class="el" href="defs_8h.html#a746483e29fbbad8cb71e1b3875763ae2">ah_err_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="time_8h.html#a32225f7c17cdcdb47fdabc357f203761">ah_time_sub</a> (<a class="el" href="structah__time.html">ah_time_t</a> time, <a class="el" href="time_8h.html#a2141010d144279cd2b83ca429883d80f">ah_timediff_t</a> diff, <a class="el" href="structah__time.html">ah_time_t</a> *result)</td></tr>
 <tr class="memdesc:a32225f7c17cdcdb47fdabc357f203761"><td class="mdescLeft">&#160;</td><td class="mdescRight">Decreases <em>time</em> by <em>diff</em>, storing the result to <em>result</em>.  <a href="time_8h.html#a32225f7c17cdcdb47fdabc357f203761">More...</a><br /></td></tr>
@@ -528,7 +529,7 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Gets the current time, as reported by the platform. </p>
+<p>Gets the current monotonic time, as reported by the platform. </p>
 <p >What concrete platform provision is consulted varies with the targeted platform. The following table outlines what time sources are used on the supported platforms:</p>
 <a class="anchor" id="time-sources"></a>
 <table class="doxtable">

@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <meta charset="utf-8">
   <meta name="generator" content="Doxygen 1.9.5"/>
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <title>ah_http/include/ah/http.h File Reference - Eclipse Arrowhead™ Core C Libraries</title>
@@ -15,22 +16,22 @@
 /* @license-end */
 </script>
   <script>
-      window.addEventListener("load", () => {
-          let contents = document.querySelector("body > div.contents");
-          if (!contents) {
-            return;
-          }
-          document.querySelectorAll("#top ul > li.current > a > span").forEach((selectedMenuItem) => {
-            contents.classList.add(selectedMenuItem.innerText.trim().toLowerCase().replace(/\s+/, "-"));
-          });
-        for (let i = contents.childNodes.length - 1; i >= 0; i -= 1) {
-          let childNode = contents.childNodes.item(i);
-          if ((childNode.nodeType === 3 && childNode.textContent.trim().length === 0)
-                  || (childNode.nodeType === 1 && childNode.classList.contains("textblock") && childNode.textContent.trim().length === 0)) {
-            childNode.remove();
-          }
-        }
+    window.addEventListener("load", () => {
+      let contents = document.querySelector("body > div.contents");
+      if (!contents) {
+        return;
+      }
+      document.querySelectorAll("#top ul > li.current > a > span").forEach((selectedMenuItem) => {
+        contents.classList.add(selectedMenuItem.innerText.trim().toLowerCase().replace(/\s+/, "-"));
       });
+      for (let i = contents.childNodes.length - 1; i >= 0; i -= 1) {
+        let childNode = contents.childNodes.item(i);
+        if ((childNode.nodeType === 3 && childNode.textContent.trim().length === 0)
+                || (childNode.nodeType === 1 && childNode.classList.contains("textblock") && childNode.textContent.trim().length === 0)) {
+          childNode.remove();
+        }
+      }
+    });
   </script>
   <link href="tabs.css" rel="stylesheet" type="text/css"/>
   <link href="DoxygenStyle.css" rel="stylesheet" type="text/css"/>
@@ -98,6 +99,7 @@ var searchBox = new SearchBox("searchBox", "search/",'.html');
 <div class="header">
   <div class="summary">
 <a href="#nested-classes">Data Structures</a> &#124;
+<a href="#define-members">Macros</a> &#124;
 <a href="#typedef-members">Typedefs</a>  </div>
   <div class="headertitle"><div class="title">http.h File Reference</div></div>
 </div><!--header-->
@@ -115,7 +117,7 @@ If a <em>non-chunked body</em> is to be sent, which is recommended when the fina
 <li>
 If a <em>chunked body</em> is to be sent, which is recommended when the final size of the send body is <em>not known</em> in advance, call <a class="el" href="http_8h.html#a95ac1840f6f2b2ae9d8a0b32e1366d79" title="Schedules sending of HTTP message body data in the form of a chunk.">ah_http_client_send_chunk()</a> repeatedly until all body chunks have been added. Finally, call <a class="el" href="http_8h.html#aef012c485382dc1051919809f266021e" title="Schedules sending of last chunk and trailer of and ends the current message of cln.">ah_http_client_send_trailer()</a> to submit any last chunk extension and trailer headers, as well as to indicate the end of the current message. </li>
 </ol>
-<p >When sending and receiving <em>metadata</em>, such as start lines, headers and chunks, that metadata is gathered automatically into dynamically allocated buffers. Each client owns one such buffer it reuses for all data it receives. Another is allocated for the duration of each on-going message send procedure. If a certain metadata item, such as a header or chunk extension, exceeds the size of its receive buffer, or a send buffer is too small to contain <em>all</em> relevant metadata items, the message transmission is failed with error code <a class="el" href="err_8h.html#a65a9889d59795edbe23364fd1f8e7752">AH_EOVERFLOW</a>. Limiting sizes in this way helps reduce the complexity the client implementation and works as a form of protection from exploits that use large metadata items. Generally, the size of each of these buffers will be limited by the page allocator page size, <code>AH_PSIZE</code>, more of which you can read in the documentation for <a class="el" href="alloc_8h.html#a911d4e66ad39e4007ef01aec5a0ec06a" title="Allocates a page of memory, guaranteed to be at least AH_PSIZE bytes large.">ah_palloc()</a>.</p>
+<p >When sending and receiving <em>metadata</em>, such as start lines, headers and chunks, that metadata is gathered automatically into dynamically allocated buffers. Each client owns one such buffer it reuses for all data it receives. Another is allocated for the duration of each on-going message send procedure. If a certain metadata item, such as a header or chunk extension, exceeds the size of its receive buffer, or a send buffer is too small to contain <em>all</em> relevant metadata items, the message transmission is failed with error code <a class="el" href="err_8h.html#a65a9889d59795edbe23364fd1f8e7752">AH_EOVERFLOW</a>. Limiting sizes in this way helps reduce the complexity the client implementation and works as a form of protection from exploits that use large metadata items. Generally, the size of each of these buffers will be limited by the page allocator page size, <a class="el" href="alloc_8h.html#acf3a4492f083f0f4868f515f16441070">AH_PSIZE</a>, more of which you can read in the documentation for <a class="el" href="alloc_8h.html#a911d4e66ad39e4007ef01aec5a0ec06a" title="Allocates a page of memory, guaranteed to be at least AH_PSIZE bytes large.">ah_palloc()</a>.</p>
 <h3>Servers</h3>
 <p >HTTP servers are set up using <a class="el" href="http_8h.html#a481c2847576b4f3cbfaa6524af2f36a7" title="Initializes srv for subsequent use.">ah_http_server_init()</a>, <a class="el" href="http_8h.html#afef6c8c9a8201ce16aece2ea9d74a7e8" title="Schedules opening of srv, which must be initialized, and its binding to the local network interface r...">ah_http_server_open()</a> and <a class="el" href="http_8h.html#a99d76f255529dfb4a1604e97a7fbe90c" title="Schedules for srv, which must be open, to start listening for connecting clients.">ah_http_server_listen()</a>. Successfully initialized servers are terminated with <a class="el" href="http_8h.html#adb9f40bf74053ecfec1718e13f18bcf0" title="Terminates srv, freeing any resources it holds.">ah_http_server_term()</a> and successfully opened servers are closed with <a class="el" href="http_8h.html#ae9def4c4323d8884edd607006b650ae1" title="Schedules closing of srv.">ah_http_server_close()</a>. Servers receive incoming clients and are notified of other events via their callback sets, which are of type <a class="el" href="structah__http__server__cbs.html" title="HTTP server callback set.">ah_http_server_cbs</a>.</p>
 <h3>Automatic Headers</h3>
@@ -175,6 +177,25 @@ Data Structures</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structah__http__ver.html">ah_http_ver</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">HTTP version indicator.  <a href="structah__http__ver.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="define-members" name="define-members"></a>
+Macros</h2></td></tr>
+<tr class="memitem:acffe2c2d672ade0d53546e2f133a471c"><td class="memItemLeft" align="right" valign="top"><a id="acffe2c2d672ade0d53546e2f133a471c" name="acffe2c2d672ade0d53546e2f133a471c"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>AH_HTTP_VERSION_MAJOR</b>&#160;&#160;&#160;AH_I_HTTP_VERSION_MAJOR</td></tr>
+<tr class="memdesc:acffe2c2d672ade0d53546e2f133a471c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Major version of the HTTP library, represented by an unsigned integer literal. <br /></td></tr>
+<tr class="separator:acffe2c2d672ade0d53546e2f133a471c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7406c21229291db53c74df46941df74f"><td class="memItemLeft" align="right" valign="top"><a id="a7406c21229291db53c74df46941df74f" name="a7406c21229291db53c74df46941df74f"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>AH_HTTP_VERSION_MINOR</b>&#160;&#160;&#160;AH_I_HTTP_VERSION_MINOR</td></tr>
+<tr class="memdesc:a7406c21229291db53c74df46941df74f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Minor version of the HTTP library, represented by an unsigned integer literal. <br /></td></tr>
+<tr class="separator:a7406c21229291db53c74df46941df74f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae16d61801758beff1dfabddf278a6d20"><td class="memItemLeft" align="right" valign="top"><a id="ae16d61801758beff1dfabddf278a6d20" name="ae16d61801758beff1dfabddf278a6d20"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>AH_HTTP_VERSION_PATCH</b>&#160;&#160;&#160;AH_I_HTTP_VERSION_PATCH</td></tr>
+<tr class="memdesc:ae16d61801758beff1dfabddf278a6d20"><td class="mdescLeft">&#160;</td><td class="mdescRight">Patch version of the HTTP library, represented by an unsigned integer literal. <br /></td></tr>
+<tr class="separator:ae16d61801758beff1dfabddf278a6d20"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aee82aceb495f1e5b3e7e7bd37cecf550"><td class="memItemLeft" align="right" valign="top"><a id="aee82aceb495f1e5b3e7e7bd37cecf550" name="aee82aceb495f1e5b3e7e7bd37cecf550"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>AH_HTTP_VERSION_STR</b>&#160;&#160;&#160;AH_I_HTTP_VERSION_STR</td></tr>
+<tr class="memdesc:aee82aceb495f1e5b3e7e7bd37cecf550"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constant string representation of the HTTP library version. <br /></td></tr>
+<tr class="separator:aee82aceb495f1e5b3e7e7bd37cecf550"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="typedef-members" name="typedef-members"></a>
 Typedefs</h2></td></tr>
@@ -306,19 +327,6 @@ Functions</h2></td></tr>
 <tr class="memitem:a6b24355cd2c20fcd65fc08f763ef1972"><td class="memItemLeft" align="right" valign="top"><a class="el" href="defs_8h.html#a4a00eaa653b79c27bff40d48d658f86f">ah_extern</a> bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="http_8h.html#a6b24355cd2c20fcd65fc08f763ef1972">ah_http_server_cbs_is_valid</a> (const <a class="el" href="structah__http__server__cbs.html">ah_http_server_cbs_t</a> *cbs)</td></tr>
 <tr class="memdesc:a6b24355cd2c20fcd65fc08f763ef1972"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if <em>cbs</em> is valid for handling servers initiated locally.  <a href="http_8h.html#a6b24355cd2c20fcd65fc08f763ef1972">More...</a><br /></td></tr>
 <tr class="separator:a6b24355cd2c20fcd65fc08f763ef1972"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr><td colspan="2"><div class="groupHeader">HTTP Library Version Details</div></td></tr>
-<tr class="memitem:ac6073a75e00d5de89413430b8a599dd1"><td class="memItemLeft" align="right" valign="top"><a class="el" href="defs_8h.html#a4a00eaa653b79c27bff40d48d658f86f">ah_extern</a> unsigned short&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="http_8h.html#ac6073a75e00d5de89413430b8a599dd1">ah_http_lib_version_major</a> (void)</td></tr>
-<tr class="memdesc:ac6073a75e00d5de89413430b8a599dd1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets major version of the HTTP library.  <a href="http_8h.html#ac6073a75e00d5de89413430b8a599dd1">More...</a><br /></td></tr>
-<tr class="separator:ac6073a75e00d5de89413430b8a599dd1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aee67121b0d96dfac6b98d685ec7dba6d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="defs_8h.html#a4a00eaa653b79c27bff40d48d658f86f">ah_extern</a> unsigned short&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="http_8h.html#aee67121b0d96dfac6b98d685ec7dba6d">ah_http_lib_version_minor</a> (void)</td></tr>
-<tr class="memdesc:aee67121b0d96dfac6b98d685ec7dba6d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets minor version of the HTTP library.  <a href="http_8h.html#aee67121b0d96dfac6b98d685ec7dba6d">More...</a><br /></td></tr>
-<tr class="separator:aee67121b0d96dfac6b98d685ec7dba6d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6c6fe7c1d134fa5c5798c2e39b3ed169"><td class="memItemLeft" align="right" valign="top"><a class="el" href="defs_8h.html#a4a00eaa653b79c27bff40d48d658f86f">ah_extern</a> unsigned short&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="http_8h.html#a6c6fe7c1d134fa5c5798c2e39b3ed169">ah_http_lib_version_patch</a> (void)</td></tr>
-<tr class="memdesc:a6c6fe7c1d134fa5c5798c2e39b3ed169"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets patch version of the HTTP library.  <a href="http_8h.html#a6c6fe7c1d134fa5c5798c2e39b3ed169">More...</a><br /></td></tr>
-<tr class="separator:a6c6fe7c1d134fa5c5798c2e39b3ed169"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acc86068edd188defdfb0a224f1953e3d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="defs_8h.html#a4a00eaa653b79c27bff40d48d658f86f">ah_extern</a> const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="http_8h.html#acc86068edd188defdfb0a224f1953e3d">ah_http_lib_version_str</a> (void)</td></tr>
-<tr class="memdesc:acc86068edd188defdfb0a224f1953e3d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets human-readable representation of version of the HTTP library.  <a href="http_8h.html#acc86068edd188defdfb0a224f1953e3d">More...</a><br /></td></tr>
-<tr class="separator:acc86068edd188defdfb0a224f1953e3d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Function Documentation</h2>
 <a id="aa7e37041fb961caf21160ded7d0b0bc1" name="aa7e37041fb961caf21160ded7d0b0bc1"></a>
@@ -568,11 +576,11 @@ Functions</h2></td></tr>
 <p>Gets the context pointer of the client observer associated with <em>srv</em>. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">srv</td><td>Pointer to client. </td></tr>
+    <tr><td class="paramname">cln</td><td>Pointer to client. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>Context pointer, or <code>NULL</code> if <em>srv</em> is <code>NULL</code> or the transport of <em>srv</em> is missing a required function in its virtual function table. Also returns <code>NULL</code> if the context pointer itself is <code>NULL</code>. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Context pointer, or <code>NULL</code> if <em>cln</em> is <code>NULL</code> or the transport of <em>cln</em> is missing a required function in its virtual function table. Also returns <code>NULL</code> if the context pointer itself is <code>NULL</code>. </dd></dl>
 
 </div>
 </div>
@@ -1057,90 +1065,6 @@ Any additional code returned by the used TCP transport. See <a class="el" href="
 
 </div>
 </div>
-<a id="ac6073a75e00d5de89413430b8a599dd1" name="ac6073a75e00d5de89413430b8a599dd1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac6073a75e00d5de89413430b8a599dd1">&#9670;&#160;</a></span>ah_http_lib_version_major()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="defs_8h.html#a4a00eaa653b79c27bff40d48d658f86f">ah_extern</a> unsigned short ah_http_lib_version_major </td>
-          <td>(</td>
-          <td class="paramtype">void&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Gets major version of the HTTP library. </p>
-<dl class="section return"><dt>Returns</dt><dd>Major version indicator. </dd></dl>
-
-</div>
-</div>
-<a id="aee67121b0d96dfac6b98d685ec7dba6d" name="aee67121b0d96dfac6b98d685ec7dba6d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aee67121b0d96dfac6b98d685ec7dba6d">&#9670;&#160;</a></span>ah_http_lib_version_minor()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="defs_8h.html#a4a00eaa653b79c27bff40d48d658f86f">ah_extern</a> unsigned short ah_http_lib_version_minor </td>
-          <td>(</td>
-          <td class="paramtype">void&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Gets minor version of the HTTP library. </p>
-<dl class="section return"><dt>Returns</dt><dd>Minor version indicator. </dd></dl>
-
-</div>
-</div>
-<a id="a6c6fe7c1d134fa5c5798c2e39b3ed169" name="a6c6fe7c1d134fa5c5798c2e39b3ed169"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6c6fe7c1d134fa5c5798c2e39b3ed169">&#9670;&#160;</a></span>ah_http_lib_version_patch()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="defs_8h.html#a4a00eaa653b79c27bff40d48d658f86f">ah_extern</a> unsigned short ah_http_lib_version_patch </td>
-          <td>(</td>
-          <td class="paramtype">void&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Gets patch version of the HTTP library. </p>
-<dl class="section return"><dt>Returns</dt><dd>Patch version indicator. </dd></dl>
-
-</div>
-</div>
-<a id="acc86068edd188defdfb0a224f1953e3d" name="acc86068edd188defdfb0a224f1953e3d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#acc86068edd188defdfb0a224f1953e3d">&#9670;&#160;</a></span>ah_http_lib_version_str()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="defs_8h.html#a4a00eaa653b79c27bff40d48d658f86f">ah_extern</a> const char * ah_http_lib_version_str </td>
-          <td>(</td>
-          <td class="paramtype">void&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Gets human-readable representation of version of the HTTP library. </p>
-<dl class="section return"><dt>Returns</dt><dd>Constant string representation of version. </dd></dl>
-
-</div>
-</div>
 <a id="a6b24355cd2c20fcd65fc08f763ef1972" name="a6b24355cd2c20fcd65fc08f763ef1972"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a6b24355cd2c20fcd65fc08f763ef1972">&#9670;&#160;</a></span>ah_http_server_cbs_is_valid()</h2>
 
@@ -1401,7 +1325,7 @@ Any additional code returned by the used TCP transport. See <a class="el" href="
 <li>
 <a class="el" href="err_8h.html#a93152c7ed33b050e5269c18301108a94">AH_ENOMEM</a> - Heap memory could not be allocated for storing incoming connections. </li>
 <li>
-<a class="el" href="err_8h.html#a65a9889d59795edbe23364fd1f8e7752">AH_EOVERFLOW</a> - <code>AH_PSIZE</code> is too small for it to be possible to store both / * metadata <em>and</em> have room for at least one incoming connection in a single page provided by the page allocator (see <a class="el" href="alloc_8h.html#a911d4e66ad39e4007ef01aec5a0ec06a" title="Allocates a page of memory, guaranteed to be at least AH_PSIZE bytes large.">ah_palloc()</a>). </li>
+<a class="el" href="err_8h.html#a65a9889d59795edbe23364fd1f8e7752">AH_EOVERFLOW</a> - <a class="el" href="alloc_8h.html#acf3a4492f083f0f4868f515f16441070">AH_PSIZE</a> is too small for it to be possible to store both / * metadata <em>and</em> have room for at least one incoming connection in a single page provided by the page allocator (see <a class="el" href="alloc_8h.html#a911d4e66ad39e4007ef01aec5a0ec06a" title="Allocates a page of memory, guaranteed to be at least AH_PSIZE bytes large.">ah_palloc()</a>). </li>
 </ul>
 </dd></dl>
 <dl class="section note"><dt>Note</dt><dd>Every successfully initialized <em>srv</em> must eventually be provided to <a class="el" href="http_8h.html#adb9f40bf74053ecfec1718e13f18bcf0" title="Terminates srv, freeing any resources it holds.">ah_http_server_term()</a>. </dd></dl>

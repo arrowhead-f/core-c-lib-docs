@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <meta charset="utf-8">
   <meta name="generator" content="Doxygen 1.9.5"/>
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <title>ah_base/include/ah/alloc.h File Reference - Eclipse Arrowhead™ Core C Libraries</title>
@@ -15,22 +16,22 @@
 /* @license-end */
 </script>
   <script>
-      window.addEventListener("load", () => {
-          let contents = document.querySelector("body > div.contents");
-          if (!contents) {
-            return;
-          }
-          document.querySelectorAll("#top ul > li.current > a > span").forEach((selectedMenuItem) => {
-            contents.classList.add(selectedMenuItem.innerText.trim().toLowerCase().replace(/\s+/, "-"));
-          });
-        for (let i = contents.childNodes.length - 1; i >= 0; i -= 1) {
-          let childNode = contents.childNodes.item(i);
-          if ((childNode.nodeType === 3 && childNode.textContent.trim().length === 0)
-                  || (childNode.nodeType === 1 && childNode.classList.contains("textblock") && childNode.textContent.trim().length === 0)) {
-            childNode.remove();
-          }
-        }
+    window.addEventListener("load", () => {
+      let contents = document.querySelector("body > div.contents");
+      if (!contents) {
+        return;
+      }
+      document.querySelectorAll("#top ul > li.current > a > span").forEach((selectedMenuItem) => {
+        contents.classList.add(selectedMenuItem.innerText.trim().toLowerCase().replace(/\s+/, "-"));
       });
+      for (let i = contents.childNodes.length - 1; i >= 0; i -= 1) {
+        let childNode = contents.childNodes.item(i);
+        if ((childNode.nodeType === 3 && childNode.textContent.trim().length === 0)
+                || (childNode.nodeType === 1 && childNode.classList.contains("textblock") && childNode.textContent.trim().length === 0)) {
+          childNode.remove();
+        }
+      }
+    });
   </script>
   <link href="tabs.css" rel="stylesheet" type="text/css"/>
   <link href="DoxygenStyle.css" rel="stylesheet" type="text/css"/>
@@ -103,9 +104,22 @@ var searchBox = new SearchBox("searchBox", "search/",'.html');
 <div class="contents">
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p >Dynamic memory allocation. </p>
-<p >This file most significantly provides function for allocating and freeing dynamic memory. If provides the malloc(), calloc(), realloc() and free() functions of the C99 standard library, or your own implementations of them, as well as functions for allocating and freeing <em>pages</em> of memory. A <em>page</em> is a contiguous chunk of <code>AH_PSIZE</code> bytes, aligned to a memory boundary deemed suitable by the library implementation.</p>
-<p >In contrast to the C99 allocator, the page allocator is relatively simple to implement such that it effectively avoids memory fragmentation. As all pages are of the same size, those pages can be allocated and freed relatively fast. The page allocator is used, when possible, by the Arrowhead Core C libraries.</p>
-<dl class="section note"><dt>Note</dt><dd>What functions are concretely provided can be configured as described in <a class="el" href="conf_8h.html" title="Library configuration.">conf.h</a>. </dd></dl>
+<p >This file most significantly provides function for allocating and freeing dynamic memory. It provides two allocators, a <em>page allocator</em> and the <em>C99 allocator</em>. The implementations of the allocators can be changed by specifying their replacements as directed in <a class="el" href="conf_8h.html" title="Library configuration.">conf.h</a>.</p>
+<h3>Page Allocator</h3>
+<p >A <em>page</em> is a contiguous chunk of <a class="el" href="alloc_8h.html#acf3a4492f083f0f4868f515f16441070">AH_PSIZE</a> bytes, aligned to a memory boundary deemed suitable by the current library platform implementation. The page allocator provides and recycles such pages via the <a class="el" href="alloc_8h.html#a911d4e66ad39e4007ef01aec5a0ec06a" title="Allocates a page of memory, guaranteed to be at least AH_PSIZE bytes large.">ah_palloc()</a> and <a class="el" href="alloc_8h.html#a8d6cccf58f7975d91679bbfbdf702c6d" title="Releases referenced memory page, making it possible for the page allocator to use it again.">ah_pfree()</a> functions.</p>
+<p >In contrast to the C99 allocator, the page allocator is relatively simple to implement. As every page is of the exact same size, the allocator may return any of them when new memory is requested. An implementation of a page allocator may, for example, use a predefined set of chunks and keep track of which of them are available for allocation via a single linked list.</p>
+<p >The page allocator is used, when possible, by the Arrowhead Core C libraries.</p>
+<h3>C99 Allocator</h3>
+<p >The C99 allocator concretely consists of the <code>malloc()</code>, <code>calloc()</code>, <code>realloc()</code> and <code>free()</code> functions. However, implementing these in a manner that is both space-efficient and performant can be difficult, and especially so on embedded platforms. As a consequence, this library, and most other official Arrowhead C libraries, are designed to work even when the implementations of these functions are very limited. More specifically, an acceptable C99 allocator implementation </p><ol>
+<li>
+returns valid pointers when allocating new memory (if the requested number of bytes of heap memory are available), </li>
+<li>
+fails every attempt to reallocate memory (i.e. the first argument to realloc() is not <code>NULL</code>), and </li>
+<li>
+ignores any attempt to free memory. </li>
+</ol>
+<p>All library functionality that relies on being able to continually allocate and release memory must use the page allocator or be able to operate without using the C99 allocator at all.</p>
+<dl class="section note"><dt>Note</dt><dd>Please refer to <a class="el" href="conf_8h.html" title="Library configuration.">conf.h</a> for more details on how to configure what C99 allocator function implementations are to be used. </dd></dl>
 </div>
 <p><a href="alloc_8h_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
@@ -121,10 +135,10 @@ Macros</h2></td></tr>
 <tr class="memdesc:a026109a0711522c5144ecd324d1e64ff"><td class="mdescLeft">&#160;</td><td class="mdescRight">Allocates a contiguous chunk of at least <em>size</em> bytes of memory.  <a href="alloc_8h.html#a026109a0711522c5144ecd324d1e64ff">More...</a><br /></td></tr>
 <tr class="separator:a026109a0711522c5144ecd324d1e64ff"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a911d4e66ad39e4007ef01aec5a0ec06a"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="alloc_8h.html#a911d4e66ad39e4007ef01aec5a0ec06a">ah_palloc</a>()&#160;&#160;&#160;<a class="el" href="conf_8h.html#ae4da26828f60519b05deb87631ad4a3f">AH_CONF_PALLOC</a>()</td></tr>
-<tr class="memdesc:a911d4e66ad39e4007ef01aec5a0ec06a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Allocates a <em>page</em> of memory, guaranteed to be at least <code>AH_PSIZE</code> bytes large.  <a href="alloc_8h.html#a911d4e66ad39e4007ef01aec5a0ec06a">More...</a><br /></td></tr>
+<tr class="memdesc:a911d4e66ad39e4007ef01aec5a0ec06a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Allocates a <em>page</em> of memory, guaranteed to be at least <a class="el" href="alloc_8h.html#acf3a4492f083f0f4868f515f16441070">AH_PSIZE</a> bytes large.  <a href="alloc_8h.html#a911d4e66ad39e4007ef01aec5a0ec06a">More...</a><br /></td></tr>
 <tr class="separator:a911d4e66ad39e4007ef01aec5a0ec06a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8d6cccf58f7975d91679bbfbdf702c6d"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="alloc_8h.html#a8d6cccf58f7975d91679bbfbdf702c6d">ah_pfree</a>(page)&#160;&#160;&#160;<a class="el" href="conf_8h.html#a99b32d7175d0b45a601f2b0063964ce2">AH_CONF_PFREE</a>((page))</td></tr>
-<tr class="memdesc:a8d6cccf58f7975d91679bbfbdf702c6d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Releases referenced memory page, potentially making it possible for the page allocator to use it again.  <a href="alloc_8h.html#a8d6cccf58f7975d91679bbfbdf702c6d">More...</a><br /></td></tr>
+<tr class="memdesc:a8d6cccf58f7975d91679bbfbdf702c6d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Releases referenced memory page, making it possible for the page allocator to use it again.  <a href="alloc_8h.html#a8d6cccf58f7975d91679bbfbdf702c6d">More...</a><br /></td></tr>
 <tr class="separator:a8d6cccf58f7975d91679bbfbdf702c6d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acf3a4492f083f0f4868f515f16441070"><td class="memItemLeft" align="right" valign="top"><a id="acf3a4492f083f0f4868f515f16441070" name="acf3a4492f083f0f4868f515f16441070"></a>
 #define&#160;</td><td class="memItemRight" valign="bottom"><b>AH_PSIZE</b>&#160;&#160;&#160;<a class="el" href="conf_8h.html#a635d29d236e1757dfedb399a64ef3576">AH_CONF_PSIZE</a></td></tr>
@@ -162,6 +176,7 @@ Macros</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Allocates and zeroes an array of <em>n</em> elements, each being <em>size</em> bytes large. </p>
+<p >If <em>n</em> multiplied by <em>size</em> overflows, this function must allocate no memory and return <code>NULL</code>.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">n</td><td>Number of elements to allocate. </td></tr>
@@ -196,7 +211,7 @@ Macros</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section warning"><dt>Warning</dt><dd>It is an error to provide a pointer returned by <a class="el" href="alloc_8h.html#a911d4e66ad39e4007ef01aec5a0ec06a" title="Allocates a page of memory, guaranteed to be at least AH_PSIZE bytes large.">ah_palloc()</a>, or any other allocation function, to this function. </dd></dl>
+<dl class="section warning"><dt>Warning</dt><dd>It is an error to provide a pointer returned by <a class="el" href="alloc_8h.html#a911d4e66ad39e4007ef01aec5a0ec06a" title="Allocates a page of memory, guaranteed to be at least AH_PSIZE bytes large.">ah_palloc()</a>, or any other allocation function than those listed above, to this function. </dd></dl>
 
 </div>
 </div>
@@ -242,8 +257,8 @@ Macros</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Allocates a <em>page</em> of memory, guaranteed to be at least <code>AH_PSIZE</code> bytes large. </p>
-<p >The value of <code>AH_PSIZE</code> can be adjusted by modifying <code>AH_CONF_PSIZE</code>, more of which you can read in <a class="el" href="conf_8h.html" title="Library configuration.">conf.h</a>.</p>
+<p>Allocates a <em>page</em> of memory, guaranteed to be at least <a class="el" href="alloc_8h.html#acf3a4492f083f0f4868f515f16441070">AH_PSIZE</a> bytes large. </p>
+<p >The value of <a class="el" href="alloc_8h.html#acf3a4492f083f0f4868f515f16441070">AH_PSIZE</a> can be adjusted by modifying <code>AH_CONF_PSIZE</code>, more of which you can read in <a class="el" href="conf_8h.html" title="Library configuration.">conf.h</a>.</p>
 <dl class="section return"><dt>Returns</dt><dd>An uninitialized chunk of memory, or <code>NULL</code> if no sufficiently large chunk can be allocated. </dd></dl>
 
 </div>
@@ -264,14 +279,14 @@ Macros</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Releases referenced memory page, potentially making it possible for the page allocator to use it again. </p>
+<p>Releases referenced memory page, making it possible for the page allocator to use it again. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">page</td><td>Pointer previously acquired from <a class="el" href="alloc_8h.html#a911d4e66ad39e4007ef01aec5a0ec06a" title="Allocates a page of memory, guaranteed to be at least AH_PSIZE bytes large.">ah_palloc()</a>.</td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section warning"><dt>Warning</dt><dd>It is an error to provide a pointer returned by <a class="el" href="alloc_8h.html#af60bc3ffcf5977b5603888f9c70cc74a" title="Allocates and zeroes an array of n elements, each being size bytes large.">ah_calloc()</a>, <a class="el" href="alloc_8h.html#a026109a0711522c5144ecd324d1e64ff" title="Allocates a contiguous chunk of at least size bytes of memory.">ah_malloc()</a> or any other allocation function, to this function. </dd></dl>
+<dl class="section warning"><dt>Warning</dt><dd>It is an error to provide a pointer returned by <a class="el" href="alloc_8h.html#af60bc3ffcf5977b5603888f9c70cc74a" title="Allocates and zeroes an array of n elements, each being size bytes large.">ah_calloc()</a>, <a class="el" href="alloc_8h.html#a026109a0711522c5144ecd324d1e64ff" title="Allocates a contiguous chunk of at least size bytes of memory.">ah_malloc()</a> or any other allocation function than <a class="el" href="alloc_8h.html#a911d4e66ad39e4007ef01aec5a0ec06a" title="Allocates a page of memory, guaranteed to be at least AH_PSIZE bytes large.">ah_palloc()</a>, to this function. </dd></dl>
 
 </div>
 </div>
@@ -311,7 +326,12 @@ Macros</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>A chunk of memory of at least <em>size</em> bytes that contain the contents previously associated with <em>ptr</em>. <code>NULL</code> if the reallocation failed, in which case the chunk of <em>ptr</em> remains unmodified.</dd></dl>
-<dl class="section warning"><dt>Warning</dt><dd>If <em>size</em> is <code>0</code> and <em>ptr</em> is not <code>NULL</code>, the result <em>may</em> be a pointer to a new buffer with size <em>0</em> being returned or <code>NULL</code> being returned. </dd></dl>
+<dl class="section note"><dt>Note</dt><dd>If <em>size</em> <em>is not</em> <code>0</code> and <em>ptr</em> <em>is</em> <code>NULL</code>, this function will behave exactly as a call to <a class="el" href="alloc_8h.html#a026109a0711522c5144ecd324d1e64ff" title="Allocates a contiguous chunk of at least size bytes of memory.">ah_malloc()</a> with the same size.</dd></dl>
+<dl class="section warning"><dt>Warning</dt><dd>If <em>size</em> <em>is not</em> <code>0</code> and <em>ptr</em> <em>is not</em> <code>NULL</code>, this function may, if implemented so, always return <code>NULL</code>.</dd>
+<dd>
+If <em>size</em> <em>is</em> <code>0</code> and <em>ptr</em> <em>is not</em> <code>NULL</code>, the function may either return a pointer to a memory chunk with size <code>0</code> or return <code>NULL</code>.</dd>
+<dd>
+If <em>size</em> <em>is</em> <code>0</code> and <em>ptr</em> <em>is</em> <code>NULL</code>, the result of calling this function is undefined. </dd></dl>
 
 </div>
 </div>

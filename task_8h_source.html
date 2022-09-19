@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <meta charset="utf-8">
   <meta name="generator" content="Doxygen 1.9.5"/>
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <title>ah_base/include/ah/task.h Source File - Eclipse Arrowhead™ Core C Libraries</title>
@@ -15,22 +16,22 @@
 /* @license-end */
 </script>
   <script>
-      window.addEventListener("load", () => {
-          let contents = document.querySelector("body > div.contents");
-          if (!contents) {
-            return;
-          }
-          document.querySelectorAll("#top ul > li.current > a > span").forEach((selectedMenuItem) => {
-            contents.classList.add(selectedMenuItem.innerText.trim().toLowerCase().replace(/\s+/, "-"));
-          });
-        for (let i = contents.childNodes.length - 1; i >= 0; i -= 1) {
-          let childNode = contents.childNodes.item(i);
-          if ((childNode.nodeType === 3 && childNode.textContent.trim().length === 0)
-                  || (childNode.nodeType === 1 && childNode.classList.contains("textblock") && childNode.textContent.trim().length === 0)) {
-            childNode.remove();
-          }
-        }
+    window.addEventListener("load", () => {
+      let contents = document.querySelector("body > div.contents");
+      if (!contents) {
+        return;
+      }
+      document.querySelectorAll("#top ul > li.current > a > span").forEach((selectedMenuItem) => {
+        contents.classList.add(selectedMenuItem.innerText.trim().toLowerCase().replace(/\s+/, "-"));
       });
+      for (let i = contents.childNodes.length - 1; i >= 0; i -= 1) {
+        let childNode = contents.childNodes.item(i);
+        if ((childNode.nodeType === 3 && childNode.textContent.trim().length === 0)
+                || (childNode.nodeType === 1 && childNode.classList.contains("textblock") && childNode.textContent.trim().length === 0)) {
+          childNode.remove();
+        }
+      }
+    });
   </script>
   <link href="tabs.css" rel="stylesheet" type="text/css"/>
   <link href="DoxygenStyle.css" rel="stylesheet" type="text/css"/>
@@ -104,32 +105,32 @@ var searchBox = new SearchBox("searchBox", "search/",'.html');
 <div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#ifndef AH_TASK_H_</span></div>
 <div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#define AH_TASK_H_</span></div>
 <div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span> </div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="preprocessor">#include &quot;internal/_task.h&quot;</span></div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span> </div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span><span class="preprocessor">#include &lt;stdbool.h&gt;</span></div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="preprocessor">#include &lt;stddef.h&gt;</span></div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span> </div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno"><a class="line" href="task_8h.html#a17a0f19956fe501481611c29f276302d">   35</a></span><span class="keyword">typedef</span> void (*<a class="code hl_typedef" href="task_8h.html#a17a0f19956fe501481611c29f276302d" title="A pointer to a task function, or callback.">ah_task_cb</a>)(<a class="code hl_struct" href="structah__task.html" title="Task that can be scheduled for execution in the future.">ah_task_t</a>* task, <a class="code hl_typedef" href="defs_8h.html#a746483e29fbbad8cb71e1b3875763ae2" title="Signed integer type used to hold an error code.">ah_err_t</a> err);</div>
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span> </div>
-<div class="line"><a id="l00043" name="l00043"></a><span class="lineno"><a class="line" href="structah__task.html">   43</a></span><span class="keyword">struct </span><a class="code hl_struct" href="structah__task.html" title="Task that can be scheduled for execution in the future.">ah_task</a> {</div>
-<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>    AH_I_TASK_FIELDS</div>
-<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>};</div>
-<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span> </div>
-<div class="line"><a id="l00064" name="l00064"></a><span class="lineno"><a class="line" href="task_8h.html#a4f84e2159a0eac5f2cfd78f1e1253699">   64</a></span><a class="code hl_define" href="defs_8h.html#a4a00eaa653b79c27bff40d48d658f86f" title="Specified before a function declaration or definition to make it available when linking.">ah_extern</a> <a class="code hl_typedef" href="defs_8h.html#a746483e29fbbad8cb71e1b3875763ae2" title="Signed integer type used to hold an error code.">ah_err_t</a> <a class="code hl_function" href="task_8h.html#a4f84e2159a0eac5f2cfd78f1e1253699" title="Initializes task with given loop and task callback cb.">ah_task_init</a>(<a class="code hl_struct" href="structah__task.html" title="Task that can be scheduled for execution in the future.">ah_task_t</a>* task, <a class="code hl_struct" href="structah__loop.html" title="Event loop.">ah_loop_t</a>* loop, <a class="code hl_typedef" href="task_8h.html#a17a0f19956fe501481611c29f276302d" title="A pointer to a task function, or callback.">ah_task_cb</a> cb);</div>
-<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span> </div>
-<div class="line"><a id="l00073" name="l00073"></a><span class="lineno"><a class="line" href="task_8h.html#ae1885b0ed1a55ae9e40e60d7fcf5dcd4">   73</a></span><a class="code hl_define" href="defs_8h.html#a4a00eaa653b79c27bff40d48d658f86f" title="Specified before a function declaration or definition to make it available when linking.">ah_extern</a> <span class="keywordtype">void</span>* <a class="code hl_function" href="task_8h.html#ae1885b0ed1a55ae9e40e60d7fcf5dcd4" title="Gets user data pointer associated with task.">ah_task_get_user_data</a>(<span class="keyword">const</span> <a class="code hl_struct" href="structah__task.html" title="Task that can be scheduled for execution in the future.">ah_task_t</a>* task);</div>
-<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span> </div>
-<div class="line"><a id="l00081" name="l00081"></a><span class="lineno"><a class="line" href="task_8h.html#ad76448200fb6522d38bc0f13a598f3b3">   81</a></span><a class="code hl_define" href="defs_8h.html#a4a00eaa653b79c27bff40d48d658f86f" title="Specified before a function declaration or definition to make it available when linking.">ah_extern</a> <a class="code hl_struct" href="structah__loop.html" title="Event loop.">ah_loop_t</a>* <a class="code hl_function" href="task_8h.html#ad76448200fb6522d38bc0f13a598f3b3" title="Gets pointer to event loop associated with task.">ah_task_get_loop</a>(<span class="keyword">const</span> <a class="code hl_struct" href="structah__task.html" title="Task that can be scheduled for execution in the future.">ah_task_t</a>* task);</div>
-<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span> </div>
-<div class="line"><a id="l00091" name="l00091"></a><span class="lineno"><a class="line" href="task_8h.html#a746ee5ef6f27f571c4919313f23b296e">   91</a></span><a class="code hl_define" href="defs_8h.html#a4a00eaa653b79c27bff40d48d658f86f" title="Specified before a function declaration or definition to make it available when linking.">ah_extern</a> <span class="keywordtype">void</span> <a class="code hl_function" href="task_8h.html#a746ee5ef6f27f571c4919313f23b296e" title="Sets user data pointer of task.">ah_task_set_user_data</a>(<a class="code hl_struct" href="structah__task.html" title="Task that can be scheduled for execution in the future.">ah_task_t</a>* task, <span class="keywordtype">void</span>* user_data);</div>
-<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span> </div>
-<div class="line"><a id="l00103" name="l00103"></a><span class="lineno"><a class="line" href="task_8h.html#aa5cab4faf235961044d08058c6295c20">  103</a></span><a class="code hl_define" href="defs_8h.html#a4a00eaa653b79c27bff40d48d658f86f" title="Specified before a function declaration or definition to make it available when linking.">ah_extern</a> <span class="keywordtype">bool</span> <a class="code hl_function" href="task_8h.html#aa5cab4faf235961044d08058c6295c20" title="Cancels task, if currently scheduled for execution.">ah_task_cancel</a>(<a class="code hl_struct" href="structah__task.html" title="Task that can be scheduled for execution in the future.">ah_task_t</a>* task);</div>
-<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span> </div>
-<div class="line"><a id="l00123" name="l00123"></a><span class="lineno"><a class="line" href="task_8h.html#a9853b089cf66d6c38c3fd3c274ff9433">  123</a></span><a class="code hl_define" href="defs_8h.html#a4a00eaa653b79c27bff40d48d658f86f" title="Specified before a function declaration or definition to make it available when linking.">ah_extern</a> <a class="code hl_typedef" href="defs_8h.html#a746483e29fbbad8cb71e1b3875763ae2" title="Signed integer type used to hold an error code.">ah_err_t</a> <a class="code hl_function" href="task_8h.html#a9853b089cf66d6c38c3fd3c274ff9433" title="Schedules task for execution at or after baseline.">ah_task_schedule_at</a>(<a class="code hl_struct" href="structah__task.html" title="Task that can be scheduled for execution in the future.">ah_task_t</a>* task, <a class="code hl_struct" href="structah__time.html" title="Reference to a point in time, measured from an arbitrary point in the past.">ah_time_t</a> baseline);</div>
-<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span> </div>
-<div class="line"><a id="l00133" name="l00133"></a><span class="lineno"><a class="line" href="task_8h.html#ae00ba8d9eb669598f5e7c99417651292">  133</a></span><a class="code hl_define" href="defs_8h.html#a4a00eaa653b79c27bff40d48d658f86f" title="Specified before a function declaration or definition to make it available when linking.">ah_extern</a> <span class="keywordtype">void</span> <a class="code hl_function" href="task_8h.html#ae00ba8d9eb669598f5e7c99417651292" title="Terminates task, releasing any resources associated with it.">ah_task_term</a>(<a class="code hl_struct" href="structah__task.html" title="Task that can be scheduled for execution in the future.">ah_task_t</a>* task);</div>
-<div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span> </div>
-<div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="preprocessor">#include &quot;internal/_task.h&quot;</span></div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span> </div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="preprocessor">#include &lt;stdbool.h&gt;</span></div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="preprocessor">#include &lt;stddef.h&gt;</span></div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span> </div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno"><a class="line" href="task_8h.html#a17a0f19956fe501481611c29f276302d">   29</a></span><span class="keyword">typedef</span> void (*<a class="code hl_typedef" href="task_8h.html#a17a0f19956fe501481611c29f276302d" title="A pointer to a task function, or callback.">ah_task_cb</a>)(<a class="code hl_struct" href="structah__task.html" title="Task that can be scheduled for execution in the future.">ah_task_t</a>* task, <a class="code hl_typedef" href="defs_8h.html#a746483e29fbbad8cb71e1b3875763ae2" title="Signed integer type used to hold an error code.">ah_err_t</a> err);</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span> </div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno"><a class="line" href="structah__task.html">   37</a></span><span class="keyword">struct </span><a class="code hl_struct" href="structah__task.html" title="Task that can be scheduled for execution in the future.">ah_task</a> {</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>    AH_I_TASK_FIELDS</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>};</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span> </div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno"><a class="line" href="task_8h.html#a4f84e2159a0eac5f2cfd78f1e1253699">   58</a></span><a class="code hl_define" href="defs_8h.html#a4a00eaa653b79c27bff40d48d658f86f" title="Specified before a function declaration or definition to make it available when linking.">ah_extern</a> <a class="code hl_typedef" href="defs_8h.html#a746483e29fbbad8cb71e1b3875763ae2" title="Signed integer type used to hold an error code.">ah_err_t</a> <a class="code hl_function" href="task_8h.html#a4f84e2159a0eac5f2cfd78f1e1253699" title="Initializes task with given loop and task callback cb.">ah_task_init</a>(<a class="code hl_struct" href="structah__task.html" title="Task that can be scheduled for execution in the future.">ah_task_t</a>* task, <a class="code hl_struct" href="structah__loop.html" title="Event loop.">ah_loop_t</a>* loop, <a class="code hl_typedef" href="task_8h.html#a17a0f19956fe501481611c29f276302d" title="A pointer to a task function, or callback.">ah_task_cb</a> cb);</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span> </div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno"><a class="line" href="task_8h.html#ae1885b0ed1a55ae9e40e60d7fcf5dcd4">   67</a></span><a class="code hl_define" href="defs_8h.html#a4a00eaa653b79c27bff40d48d658f86f" title="Specified before a function declaration or definition to make it available when linking.">ah_extern</a> <span class="keywordtype">void</span>* <a class="code hl_function" href="task_8h.html#ae1885b0ed1a55ae9e40e60d7fcf5dcd4" title="Gets user data pointer associated with task.">ah_task_get_user_data</a>(<span class="keyword">const</span> <a class="code hl_struct" href="structah__task.html" title="Task that can be scheduled for execution in the future.">ah_task_t</a>* task);</div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span> </div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno"><a class="line" href="task_8h.html#ad76448200fb6522d38bc0f13a598f3b3">   75</a></span><a class="code hl_define" href="defs_8h.html#a4a00eaa653b79c27bff40d48d658f86f" title="Specified before a function declaration or definition to make it available when linking.">ah_extern</a> <a class="code hl_struct" href="structah__loop.html" title="Event loop.">ah_loop_t</a>* <a class="code hl_function" href="task_8h.html#ad76448200fb6522d38bc0f13a598f3b3" title="Gets pointer to event loop associated with task.">ah_task_get_loop</a>(<span class="keyword">const</span> <a class="code hl_struct" href="structah__task.html" title="Task that can be scheduled for execution in the future.">ah_task_t</a>* task);</div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span> </div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno"><a class="line" href="task_8h.html#a746ee5ef6f27f571c4919313f23b296e">   85</a></span><a class="code hl_define" href="defs_8h.html#a4a00eaa653b79c27bff40d48d658f86f" title="Specified before a function declaration or definition to make it available when linking.">ah_extern</a> <span class="keywordtype">void</span> <a class="code hl_function" href="task_8h.html#a746ee5ef6f27f571c4919313f23b296e" title="Sets user data pointer of task.">ah_task_set_user_data</a>(<a class="code hl_struct" href="structah__task.html" title="Task that can be scheduled for execution in the future.">ah_task_t</a>* task, <span class="keywordtype">void</span>* user_data);</div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span> </div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno"><a class="line" href="task_8h.html#aa5cab4faf235961044d08058c6295c20">   97</a></span><a class="code hl_define" href="defs_8h.html#a4a00eaa653b79c27bff40d48d658f86f" title="Specified before a function declaration or definition to make it available when linking.">ah_extern</a> <span class="keywordtype">bool</span> <a class="code hl_function" href="task_8h.html#aa5cab4faf235961044d08058c6295c20" title="Cancels task, if currently scheduled for execution.">ah_task_cancel</a>(<a class="code hl_struct" href="structah__task.html" title="Task that can be scheduled for execution in the future.">ah_task_t</a>* task);</div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span> </div>
+<div class="line"><a id="l00124" name="l00124"></a><span class="lineno"><a class="line" href="task_8h.html#a9853b089cf66d6c38c3fd3c274ff9433">  124</a></span><a class="code hl_define" href="defs_8h.html#a4a00eaa653b79c27bff40d48d658f86f" title="Specified before a function declaration or definition to make it available when linking.">ah_extern</a> <a class="code hl_typedef" href="defs_8h.html#a746483e29fbbad8cb71e1b3875763ae2" title="Signed integer type used to hold an error code.">ah_err_t</a> <a class="code hl_function" href="task_8h.html#a9853b089cf66d6c38c3fd3c274ff9433" title="Schedules task for execution at or after baseline.">ah_task_schedule_at</a>(<a class="code hl_struct" href="structah__task.html" title="Task that can be scheduled for execution in the future.">ah_task_t</a>* task, <a class="code hl_struct" href="structah__time.html" title="Reference to a point in time, measured from an arbitrary point in the past.">ah_time_t</a> baseline);</div>
+<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span> </div>
+<div class="line"><a id="l00134" name="l00134"></a><span class="lineno"><a class="line" href="task_8h.html#ae00ba8d9eb669598f5e7c99417651292">  134</a></span><a class="code hl_define" href="defs_8h.html#a4a00eaa653b79c27bff40d48d658f86f" title="Specified before a function declaration or definition to make it available when linking.">ah_extern</a> <span class="keywordtype">void</span> <a class="code hl_function" href="task_8h.html#ae00ba8d9eb669598f5e7c99417651292" title="Terminates task, releasing any resources associated with it.">ah_task_term</a>(<a class="code hl_struct" href="structah__task.html" title="Task that can be scheduled for execution in the future.">ah_task_t</a>* task);</div>
+<div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span> </div>
+<div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span><span class="preprocessor">#endif</span></div>
 </div><!-- fragment --></div><!-- contents -->
   <footer>Generated by <a href="https://doxygen.org">Doxygen</a> 1.9.5</footer>
 </body>

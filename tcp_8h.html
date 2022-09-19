@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <meta charset="utf-8">
   <meta name="generator" content="Doxygen 1.9.5"/>
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <title>ah_base/include/ah/tcp.h File Reference - Eclipse Arrowhead™ Core C Libraries</title>
@@ -15,22 +16,22 @@
 /* @license-end */
 </script>
   <script>
-      window.addEventListener("load", () => {
-          let contents = document.querySelector("body > div.contents");
-          if (!contents) {
-            return;
-          }
-          document.querySelectorAll("#top ul > li.current > a > span").forEach((selectedMenuItem) => {
-            contents.classList.add(selectedMenuItem.innerText.trim().toLowerCase().replace(/\s+/, "-"));
-          });
-        for (let i = contents.childNodes.length - 1; i >= 0; i -= 1) {
-          let childNode = contents.childNodes.item(i);
-          if ((childNode.nodeType === 3 && childNode.textContent.trim().length === 0)
-                  || (childNode.nodeType === 1 && childNode.classList.contains("textblock") && childNode.textContent.trim().length === 0)) {
-            childNode.remove();
-          }
-        }
+    window.addEventListener("load", () => {
+      let contents = document.querySelector("body > div.contents");
+      if (!contents) {
+        return;
+      }
+      document.querySelectorAll("#top ul > li.current > a > span").forEach((selectedMenuItem) => {
+        contents.classList.add(selectedMenuItem.innerText.trim().toLowerCase().replace(/\s+/, "-"));
       });
+      for (let i = contents.childNodes.length - 1; i >= 0; i -= 1) {
+        let childNode = contents.childNodes.item(i);
+        if ((childNode.nodeType === 3 && childNode.textContent.trim().length === 0)
+                || (childNode.nodeType === 1 && childNode.classList.contains("textblock") && childNode.textContent.trim().length === 0)) {
+          childNode.remove();
+        }
+      }
+    });
   </script>
   <link href="tabs.css" rel="stylesheet" type="text/css"/>
   <link href="DoxygenStyle.css" rel="stylesheet" type="text/css"/>
@@ -994,7 +995,7 @@ The <em>default transport</em> may also cause any of the following error codes t
 <li>
 <a class="el" href="err_8h.html#a93152c7ed33b050e5269c18301108a94">AH_ENOMEM</a> - Not enough heap memory available. </li>
 <li>
-<a class="el" href="err_8h.html#a65a9889d59795edbe23364fd1f8e7752">AH_EOVERFLOW</a> - <code>AH_PSIZE</code> is too small for it to be possible to store both required metadata <em>and</em> read data in a single page provided by the page allocator (see <a class="el" href="alloc_8h.html#a911d4e66ad39e4007ef01aec5a0ec06a" title="Allocates a page of memory, guaranteed to be at least AH_PSIZE bytes large.">ah_palloc()</a>). </li>
+<a class="el" href="err_8h.html#a65a9889d59795edbe23364fd1f8e7752">AH_EOVERFLOW</a> - <a class="el" href="alloc_8h.html#acf3a4492f083f0f4868f515f16441070">AH_PSIZE</a> is too small for it to be possible to store both required metadata <em>and</em> read data in a single page provided by the page allocator (see <a class="el" href="alloc_8h.html#a911d4e66ad39e4007ef01aec5a0ec06a" title="Allocates a page of memory, guaranteed to be at least AH_PSIZE bytes large.">ah_palloc()</a>). </li>
 <li>
 <a class="el" href="err_8h.html#aa95f2476779b43aa0fb7b8dce7092e70">AH_ESTATE</a> - <em>conn</em> is not connected or its read direction is shut down. </li>
 </ul>
@@ -1403,7 +1404,7 @@ The <em>default transport</em> may also cause any of the following error codes t
 <li>
 <a class="el" href="err_8h.html#a93152c7ed33b050e5269c18301108a94">AH_ENOMEM</a> - No enough heap memory available (<a class="el" href="alloc_8h.html#a911d4e66ad39e4007ef01aec5a0ec06a" title="Allocates a page of memory, guaranteed to be at least AH_PSIZE bytes large.">ah_palloc()</a> returned <code>NULL</code>). </li>
 <li>
-<a class="el" href="err_8h.html#a65a9889d59795edbe23364fd1f8e7752">AH_EOVERFLOW</a> - <code>AH_PSIZE</code> is too small for it to be possible to store both an <a class="el" href="structah__tcp__in.html" title="TCP input stream.">ah_tcp_in</a> instance <em>and</em> have room for input data in a single page provided by the page allocator (see <a class="el" href="alloc_8h.html#a911d4e66ad39e4007ef01aec5a0ec06a" title="Allocates a page of memory, guaranteed to be at least AH_PSIZE bytes large.">ah_palloc()</a>). </li>
+<a class="el" href="err_8h.html#a65a9889d59795edbe23364fd1f8e7752">AH_EOVERFLOW</a> - <a class="el" href="alloc_8h.html#acf3a4492f083f0f4868f515f16441070">AH_PSIZE</a> is too small for it to be possible to store both an <a class="el" href="structah__tcp__in.html" title="TCP input stream.">ah_tcp_in</a> instance <em>and</em> have room for input data in a single page provided by the page allocator (see <a class="el" href="alloc_8h.html#a911d4e66ad39e4007ef01aec5a0ec06a" title="Allocates a page of memory, guaranteed to be at least AH_PSIZE bytes large.">ah_palloc()</a>). </li>
 </ul>
 </dd></dl>
 <dl class="section note"><dt>Note</dt><dd>This function should primarily be of interest to those both wishing to implement their own TCP transports and need to intercept buffers (for the sake of decryption, for example). </dd></dl>
@@ -1442,7 +1443,7 @@ The <em>default transport</em> may also cause any of the following error codes t
 <li>
 <a class="el" href="err_8h.html#a93152c7ed33b050e5269c18301108a94">AH_ENOMEM</a> - No enough heap memory available (<a class="el" href="alloc_8h.html#a911d4e66ad39e4007ef01aec5a0ec06a" title="Allocates a page of memory, guaranteed to be at least AH_PSIZE bytes large.">ah_palloc()</a> returned <code>NULL</code>). </li>
 <li>
-<a class="el" href="err_8h.html#a65a9889d59795edbe23364fd1f8e7752">AH_EOVERFLOW</a> - <code>AH_PSIZE</code> is too small for it to be possible to store both an <a class="el" href="structah__tcp__in.html" title="TCP input stream.">ah_tcp_in</a> instance <em>and</em> have room for input data in a single page provided by the page allocator (see <a class="el" href="alloc_8h.html#a911d4e66ad39e4007ef01aec5a0ec06a" title="Allocates a page of memory, guaranteed to be at least AH_PSIZE bytes large.">ah_palloc()</a>). </li>
+<a class="el" href="err_8h.html#a65a9889d59795edbe23364fd1f8e7752">AH_EOVERFLOW</a> - <a class="el" href="alloc_8h.html#acf3a4492f083f0f4868f515f16441070">AH_PSIZE</a> is too small for it to be possible to store both an <a class="el" href="structah__tcp__in.html" title="TCP input stream.">ah_tcp_in</a> instance <em>and</em> have room for input data in a single page provided by the page allocator (see <a class="el" href="alloc_8h.html#a911d4e66ad39e4007ef01aec5a0ec06a" title="Allocates a page of memory, guaranteed to be at least AH_PSIZE bytes large.">ah_palloc()</a>). </li>
 <li>
 <a class="el" href="err_8h.html#aa95f2476779b43aa0fb7b8dce7092e70">AH_ESTATE</a> - <em>in</em> is currently not owned and cannot be detached. </li>
 </ul>
@@ -1823,7 +1824,7 @@ The <em>default transport</em> may also cause any of the following error codes t
 <li>
 <a class="el" href="err_8h.html#a93152c7ed33b050e5269c18301108a94">AH_ENOMEM</a> - Heap memory could not be allocated for storing incoming connections. </li>
 <li>
-<a class="el" href="err_8h.html#a65a9889d59795edbe23364fd1f8e7752">AH_EOVERFLOW</a> - <code>AH_PSIZE</code> is too small for it to be possible to store both metadata <em>and</em> have room for at least one incoming connection in a single page provided by the page allocator (see <a class="el" href="alloc_8h.html#a911d4e66ad39e4007ef01aec5a0ec06a" title="Allocates a page of memory, guaranteed to be at least AH_PSIZE bytes large.">ah_palloc()</a>). </li>
+<a class="el" href="err_8h.html#a65a9889d59795edbe23364fd1f8e7752">AH_EOVERFLOW</a> - <a class="el" href="alloc_8h.html#acf3a4492f083f0f4868f515f16441070">AH_PSIZE</a> is too small for it to be possible to store both metadata <em>and</em> have room for at least one incoming connection in a single page provided by the page allocator (see <a class="el" href="alloc_8h.html#a911d4e66ad39e4007ef01aec5a0ec06a" title="Allocates a page of memory, guaranteed to be at least AH_PSIZE bytes large.">ah_palloc()</a>). </li>
 </ul>
 </dd></dl>
 <dl class="section note"><dt>Note</dt><dd>Every successfully initialized <em>ln</em> must eventually be provided to <a class="el" href="tcp_8h.html#aacb5e702cb7eed79686ea4f7dbafc1ed" title="Terminates ln, freeing any resources it holds.">ah_tcp_listener_term()</a>. </dd></dl>
@@ -2209,7 +2210,7 @@ The <em>default transport</em> may also cause the following error code to be ret
 <p >Every output buffer allocated with this function must eventually be provided to <a class="el" href="tcp_8h.html#ab42f551bcffe5827ad1ecf1b214c69d4" title="Frees output buffer previously allocated using ah_tcp_out_alloc().">ah_tcp_out_free()</a>.</p>
 <p >Concretely, the page allocator (see <a class="el" href="alloc_8h.html#a911d4e66ad39e4007ef01aec5a0ec06a" title="Allocates a page of memory, guaranteed to be at least AH_PSIZE bytes large.">ah_palloc()</a>) is used to allocate the returned buffer. All parts of the returned buffer are initialized, except for the actual payload memory.</p>
 <dl class="section return"><dt>Returns</dt><dd>Pointer to new output buffer, or <code>NULL</code> if the allocation failed.</dd></dl>
-<dl class="section warning"><dt>Warning</dt><dd>If <code>AH_PSIZE</code> is configured to a too small value (see <a class="el" href="conf_8h.html" title="Library configuration.">conf.h</a>), this function always fails. </dd></dl>
+<dl class="section warning"><dt>Warning</dt><dd>If <a class="el" href="alloc_8h.html#acf3a4492f083f0f4868f515f16441070">AH_PSIZE</a> is configured to a too small value (see <a class="el" href="conf_8h.html" title="Library configuration.">conf.h</a>), this function always fails. </dd></dl>
 
 </div>
 </div>

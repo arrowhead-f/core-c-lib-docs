@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <meta charset="utf-8">
   <meta name="generator" content="Doxygen 1.9.5"/>
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <title>ah_base/include/ah/defs.h File Reference - Eclipse Arrowhead™ Core C Libraries</title>
@@ -15,22 +16,22 @@
 /* @license-end */
 </script>
   <script>
-      window.addEventListener("load", () => {
-          let contents = document.querySelector("body > div.contents");
-          if (!contents) {
-            return;
-          }
-          document.querySelectorAll("#top ul > li.current > a > span").forEach((selectedMenuItem) => {
-            contents.classList.add(selectedMenuItem.innerText.trim().toLowerCase().replace(/\s+/, "-"));
-          });
-        for (let i = contents.childNodes.length - 1; i >= 0; i -= 1) {
-          let childNode = contents.childNodes.item(i);
-          if ((childNode.nodeType === 3 && childNode.textContent.trim().length === 0)
-                  || (childNode.nodeType === 1 && childNode.classList.contains("textblock") && childNode.textContent.trim().length === 0)) {
-            childNode.remove();
-          }
-        }
+    window.addEventListener("load", () => {
+      let contents = document.querySelector("body > div.contents");
+      if (!contents) {
+        return;
+      }
+      document.querySelectorAll("#top ul > li.current > a > span").forEach((selectedMenuItem) => {
+        contents.classList.add(selectedMenuItem.innerText.trim().toLowerCase().replace(/\s+/, "-"));
       });
+      for (let i = contents.childNodes.length - 1; i >= 0; i -= 1) {
+        let childNode = contents.childNodes.item(i);
+        if ((childNode.nodeType === 3 && childNode.textContent.trim().length === 0)
+                || (childNode.nodeType === 1 && childNode.classList.contains("textblock") && childNode.textContent.trim().length === 0)) {
+          childNode.remove();
+        }
+      }
+    });
   </script>
   <link href="tabs.css" rel="stylesheet" type="text/css"/>
   <link href="DoxygenStyle.css" rel="stylesheet" type="text/css"/>
@@ -114,11 +115,11 @@ Macros</h2></td></tr>
 <tr class="memdesc:a4a00eaa653b79c27bff40d48d658f86f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Specified before a function declaration or definition to make it available when linking. <br /></td></tr>
 <tr class="separator:a4a00eaa653b79c27bff40d48d658f86f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8f6e5f765e4ecd8c5de77c317de917c2"><td class="memItemLeft" align="right" valign="top"><a id="a8f6e5f765e4ecd8c5de77c317de917c2" name="a8f6e5f765e4ecd8c5de77c317de917c2"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><b>AH_HAS_BSD_SOCKETS</b>&#160;&#160;&#160;(<a class="el" href="defs_8h.html#afacac773dbe1d2347a220198bdf2f459">AH_USE_IOCP</a> || <a class="el" href="defs_8h.html#a7990c22eb2a776352ffb5c4cfe735e5b">AH_USE_KQUEUE</a> || <a class="el" href="defs_8h.html#a150a8dbb74bf4ea89ea17a077ecca1cb">AH_USE_URING</a>)</td></tr>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>AH_HAS_BSD_SOCKETS</b>&#160;&#160;&#160;(<a class="el" href="defs_8h.html#a2ca5555ba43026cb6844323714a721a0">AH_IS_DARWIN</a> || <a class="el" href="defs_8h.html#a096a91a67ab3fdfda4c94e84f890a3b0">AH_IS_LINUX</a> || <a class="el" href="defs_8h.html#a673cce1a15fb560f9c19cc6213819d32">AH_IS_WIN32</a>)</td></tr>
 <tr class="memdesc:a8f6e5f765e4ecd8c5de77c317de917c2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Indicates whether or not a BSD sockets implementation is available on the targeted platform. <br /></td></tr>
 <tr class="separator:a8f6e5f765e4ecd8c5de77c317de917c2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a816ab5179ccb38403ee6021d5dd335a2"><td class="memItemLeft" align="right" valign="top"><a id="a816ab5179ccb38403ee6021d5dd335a2" name="a816ab5179ccb38403ee6021d5dd335a2"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><b>AH_HAS_POSIX</b>&#160;&#160;&#160;(<a class="el" href="defs_8h.html#a7990c22eb2a776352ffb5c4cfe735e5b">AH_USE_KQUEUE</a> || <a class="el" href="defs_8h.html#a150a8dbb74bf4ea89ea17a077ecca1cb">AH_USE_URING</a>)</td></tr>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>AH_HAS_POSIX</b>&#160;&#160;&#160;(<a class="el" href="defs_8h.html#a2ca5555ba43026cb6844323714a721a0">AH_IS_DARWIN</a> || <a class="el" href="defs_8h.html#a096a91a67ab3fdfda4c94e84f890a3b0">AH_IS_LINUX</a>)</td></tr>
 <tr class="memdesc:a816ab5179ccb38403ee6021d5dd335a2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Indicates whether the targeted platform is at least loosely POSIX-compliant. <br /></td></tr>
 <tr class="separator:a816ab5179ccb38403ee6021d5dd335a2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2ca5555ba43026cb6844323714a721a0"><td class="memItemLeft" align="right" valign="top"><a id="a2ca5555ba43026cb6844323714a721a0" name="a2ca5555ba43026cb6844323714a721a0"></a>
@@ -159,7 +160,7 @@ Macros</h2></td></tr>
 <tr class="separator:a83145ce26563acc9d3edd3bed081eaa3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9280e7bc9041356ef224f09bb40c3f12"><td class="memItemLeft" align="right" valign="top"><a id="a9280e7bc9041356ef224f09bb40c3f12" name="a9280e7bc9041356ef224f09bb40c3f12"></a>
 #define&#160;</td><td class="memItemRight" valign="bottom"><b>AH_VIA_MSVC</b>&#160;&#160;&#160;0</td></tr>
-<tr class="memdesc:a9280e7bc9041356ef224f09bb40c3f12"><td class="mdescLeft">&#160;</td><td class="mdescRight">Indicates whether or not the Microsoft Visual Studio compiler is being used. <br /></td></tr>
+<tr class="memdesc:a9280e7bc9041356ef224f09bb40c3f12"><td class="mdescLeft">&#160;</td><td class="mdescRight">Indicates whether or not the Microsoft Visual Studio compiler (MSVC++) is being used. <br /></td></tr>
 <tr class="separator:a9280e7bc9041356ef224f09bb40c3f12"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="typedef-members" name="typedef-members"></a>

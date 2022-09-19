@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <meta charset="utf-8">
   <meta name="generator" content="Doxygen 1.9.5"/>
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <title>Globals - Eclipse Arrowhead™ Core C Libraries</title>
@@ -15,22 +16,22 @@
 /* @license-end */
 </script>
   <script>
-      window.addEventListener("load", () => {
-          let contents = document.querySelector("body > div.contents");
-          if (!contents) {
-            return;
-          }
-          document.querySelectorAll("#top ul > li.current > a > span").forEach((selectedMenuItem) => {
-            contents.classList.add(selectedMenuItem.innerText.trim().toLowerCase().replace(/\s+/, "-"));
-          });
-        for (let i = contents.childNodes.length - 1; i >= 0; i -= 1) {
-          let childNode = contents.childNodes.item(i);
-          if ((childNode.nodeType === 3 && childNode.textContent.trim().length === 0)
-                  || (childNode.nodeType === 1 && childNode.classList.contains("textblock") && childNode.textContent.trim().length === 0)) {
-            childNode.remove();
-          }
-        }
+    window.addEventListener("load", () => {
+      let contents = document.querySelector("body > div.contents");
+      if (!contents) {
+        return;
+      }
+      document.querySelectorAll("#top ul > li.current > a > span").forEach((selectedMenuItem) => {
+        contents.classList.add(selectedMenuItem.innerText.trim().toLowerCase().replace(/\s+/, "-"));
       });
+      for (let i = contents.childNodes.length - 1; i >= 0; i -= 1) {
+        let childNode = contents.childNodes.item(i);
+        if ((childNode.nodeType === 3 && childNode.textContent.trim().length === 0)
+                || (childNode.nodeType === 1 && childNode.classList.contains("textblock") && childNode.textContent.trim().length === 0)) {
+          childNode.remove();
+        }
+      }
+    });
   </script>
   <link href="tabs.css" rel="stylesheet" type="text/css"/>
   <link href="DoxygenStyle.css" rel="stylesheet" type="text/css"/>
@@ -166,6 +167,7 @@ var searchBox = new SearchBox("searchBox", "search/",'.html');
       <li><a href="globals_e.html#index_e"><span>exde</span></a></li>
       <li><a href="globals_e.html#index_e"><span>exte</span></a></li>
       <li><a href="globals_f.html#index_f"><span>free</span></a></li>
+      <li><a href="globals_g.html#index_g"><span>gcc_</span></a></li>
       <li><a href="globals_h.html#index_h"><span>has_</span></a></li>
       <li><a href="globals_h.html#index_h"><span>http</span></a></li>
       <li><a href="globals_i.html#index_i"><span>ipad</span></a></li>
@@ -173,15 +175,11 @@ var searchBox = new SearchBox("searchBox", "search/",'.html');
       <li><a href="globals_i.html#index_i"><span>is_l</span></a></li>
       <li><a href="globals_i.html#index_i"><span>is_w</span></a></li>
       <li class="current"><a href="globals_j.html#index_j"><span>json</span></a></li>
-      <li><a href="globals_l.html#index_l"><span>lib_</span></a></li>
       <li><a href="globals_l.html#index_l"><span>like</span></a></li>
       <li><a href="globals_l.html#index_l"><span>loop</span></a></li>
       <li><a href="globals_m.html#index_m"><span>mall</span></a></li>
       <li><a href="globals_m.html#index_m"><span>mbed</span></a></li>
       <li><a href="globals_n.html#index_n"><span>nore</span></a></li>
-      <li><a href="globals_p.html#index_p"><span>p_ad</span></a></li>
-      <li><a href="globals_p.html#index_p"><span>p_mu</span></a></li>
-      <li><a href="globals_p.html#index_p"><span>p_su</span></a></li>
       <li><a href="globals_p.html#index_p"><span>pall</span></a></li>
       <li><a href="globals_p.html#index_p"><span>pfre</span></a></li>
       <li><a href="globals_p.html#index_p"><span>psiz</span></a></li>
@@ -238,15 +236,15 @@ var searchBox = new SearchBox("searchBox", "search/",'.html');
 <h3><a id="index_j" name="index_j"></a>- json -</h3><ul>
 <li>AH_JSON_LENGTH_MAX&#160;:&#160;<a class="el" href="json_8h.html#a6c1d7ad7cb1437ff75b7acbffdab755f">json.h</a></li>
 <li>AH_JSON_LEVEL_MAX&#160;:&#160;<a class="el" href="json_8h.html#aa919b2beff36c10720f52b889fd336b1">json.h</a></li>
-<li>ah_json_lib_version_major()&#160;:&#160;<a class="el" href="json_8h.html#aa9830b4927f4642486bfcbc6cf393ddc">json.h</a></li>
-<li>ah_json_lib_version_minor()&#160;:&#160;<a class="el" href="json_8h.html#aa918b00e9aab29b6ff7c6eb2957f6c6e">json.h</a></li>
-<li>ah_json_lib_version_patch()&#160;:&#160;<a class="el" href="json_8h.html#a8835dbc2b029fe08ca161b0cf5a92afc">json.h</a></li>
-<li>ah_json_lib_version_str()&#160;:&#160;<a class="el" href="json_8h.html#a3dc4a723ce2bf70047b9b1926522cbf8">json.h</a></li>
 <li>ah_json_parse()&#160;:&#160;<a class="el" href="json_8h.html#a11bc3dc5cd71f2c9fc9faeb1f53fd7a1">json.h</a></li>
 <li>ah_json_str_compare()&#160;:&#160;<a class="el" href="json_8h.html#aa4ec74c4bcb886668e060b972eb90880">json.h</a></li>
 <li>ah_json_str_escape()&#160;:&#160;<a class="el" href="json_8h.html#a4ea19991f7a0ffd9bf4b089ee1892236">json.h</a></li>
 <li>ah_json_str_unescape()&#160;:&#160;<a class="el" href="json_8h.html#a31850704658f25d3879e7674aa95d6c2">json.h</a></li>
 <li>AH_JSON_TYPE_ERROR&#160;:&#160;<a class="el" href="json_8h.html#ac76b8f4cf2175811acb1a9f56f12d9e9">json.h</a></li>
+<li>AH_JSON_VERSION_MAJOR&#160;:&#160;<a class="el" href="json_8h.html#a7657ccc62fbc24b23796fc7b1ac684d5">json.h</a></li>
+<li>AH_JSON_VERSION_MINOR&#160;:&#160;<a class="el" href="json_8h.html#a6afbea07764215643a029bb08dd5215d">json.h</a></li>
+<li>AH_JSON_VERSION_PATCH&#160;:&#160;<a class="el" href="json_8h.html#a225ef22c233bc54c4ca4b2b5bdccf7d5">json.h</a></li>
+<li>AH_JSON_VERSION_STR&#160;:&#160;<a class="el" href="json_8h.html#a2a556eca01a8a79b0d7ac0ce76ab3c62">json.h</a></li>
 </ul>
 </div><!-- contents -->
   <footer>Generated by <a href="https://doxygen.org">Doxygen</a> 1.9.5</footer>

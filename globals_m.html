@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <meta charset="utf-8">
   <meta name="generator" content="Doxygen 1.9.5"/>
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <title>Globals - Eclipse Arrowhead™ Core C Libraries</title>
@@ -15,22 +16,22 @@
 /* @license-end */
 </script>
   <script>
-      window.addEventListener("load", () => {
-          let contents = document.querySelector("body > div.contents");
-          if (!contents) {
-            return;
-          }
-          document.querySelectorAll("#top ul > li.current > a > span").forEach((selectedMenuItem) => {
-            contents.classList.add(selectedMenuItem.innerText.trim().toLowerCase().replace(/\s+/, "-"));
-          });
-        for (let i = contents.childNodes.length - 1; i >= 0; i -= 1) {
-          let childNode = contents.childNodes.item(i);
-          if ((childNode.nodeType === 3 && childNode.textContent.trim().length === 0)
-                  || (childNode.nodeType === 1 && childNode.classList.contains("textblock") && childNode.textContent.trim().length === 0)) {
-            childNode.remove();
-          }
-        }
+    window.addEventListener("load", () => {
+      let contents = document.querySelector("body > div.contents");
+      if (!contents) {
+        return;
+      }
+      document.querySelectorAll("#top ul > li.current > a > span").forEach((selectedMenuItem) => {
+        contents.classList.add(selectedMenuItem.innerText.trim().toLowerCase().replace(/\s+/, "-"));
       });
+      for (let i = contents.childNodes.length - 1; i >= 0; i -= 1) {
+        let childNode = contents.childNodes.item(i);
+        if ((childNode.nodeType === 3 && childNode.textContent.trim().length === 0)
+                || (childNode.nodeType === 1 && childNode.classList.contains("textblock") && childNode.textContent.trim().length === 0)) {
+          childNode.remove();
+        }
+      }
+    });
   </script>
   <link href="tabs.css" rel="stylesheet" type="text/css"/>
   <link href="DoxygenStyle.css" rel="stylesheet" type="text/css"/>
@@ -166,6 +167,7 @@ var searchBox = new SearchBox("searchBox", "search/",'.html');
       <li><a href="globals_e.html#index_e"><span>exde</span></a></li>
       <li><a href="globals_e.html#index_e"><span>exte</span></a></li>
       <li><a href="globals_f.html#index_f"><span>free</span></a></li>
+      <li><a href="globals_g.html#index_g"><span>gcc_</span></a></li>
       <li><a href="globals_h.html#index_h"><span>has_</span></a></li>
       <li><a href="globals_h.html#index_h"><span>http</span></a></li>
       <li><a href="globals_i.html#index_i"><span>ipad</span></a></li>
@@ -173,15 +175,11 @@ var searchBox = new SearchBox("searchBox", "search/",'.html');
       <li><a href="globals_i.html#index_i"><span>is_l</span></a></li>
       <li><a href="globals_i.html#index_i"><span>is_w</span></a></li>
       <li><a href="globals_j.html#index_j"><span>json</span></a></li>
-      <li><a href="globals_l.html#index_l"><span>lib_</span></a></li>
       <li><a href="globals_l.html#index_l"><span>like</span></a></li>
       <li><a href="globals_l.html#index_l"><span>loop</span></a></li>
       <li><a href="globals_m.html#index_m"><span>mall</span></a></li>
       <li class="current"><a href="globals_m.html#index_m"><span>mbed</span></a></li>
       <li><a href="globals_n.html#index_n"><span>nore</span></a></li>
-      <li><a href="globals_p.html#index_p"><span>p_ad</span></a></li>
-      <li><a href="globals_p.html#index_p"><span>p_mu</span></a></li>
-      <li><a href="globals_p.html#index_p"><span>p_su</span></a></li>
       <li><a href="globals_p.html#index_p"><span>pall</span></a></li>
       <li><a href="globals_p.html#index_p"><span>pfre</span></a></li>
       <li><a href="globals_p.html#index_p"><span>psiz</span></a></li>
@@ -242,14 +240,14 @@ var searchBox = new SearchBox("searchBox", "search/",'.html');
 <li>ah_mbedtls_client_get_tcp_conn()&#160;:&#160;<a class="el" href="mbedtls_8h.html#ae200349c5888a2a4c9d92d2f95e1078b">mbedtls.h</a></li>
 <li>ah_mbedtls_client_init()&#160;:&#160;<a class="el" href="mbedtls_8h.html#a160a749461dad6634ea816c9325ef63f">mbedtls.h</a></li>
 <li>ah_mbedtls_client_term()&#160;:&#160;<a class="el" href="mbedtls_8h.html#ac71b8e3239612a03821e61f3deeff0bb">mbedtls.h</a></li>
-<li>ah_mbedtls_lib_version_major()&#160;:&#160;<a class="el" href="mbedtls_8h.html#aef5730ce3b87f5ae145d8c4102ed0f10">mbedtls.h</a></li>
-<li>ah_mbedtls_lib_version_minor()&#160;:&#160;<a class="el" href="mbedtls_8h.html#ad9bb0a936d653d1d916f5b2a7185b0ad">mbedtls.h</a></li>
-<li>ah_mbedtls_lib_version_patch()&#160;:&#160;<a class="el" href="mbedtls_8h.html#ac010008b65bc89d8df33cc0013c08863">mbedtls.h</a></li>
-<li>ah_mbedtls_lib_version_str()&#160;:&#160;<a class="el" href="mbedtls_8h.html#a47b19e66b4019e7bc7ba737b44492726">mbedtls.h</a></li>
 <li>ah_mbedtls_on_handshake_done_cb&#160;:&#160;<a class="el" href="mbedtls_8h.html#a20845064a448d8ac82dc4f5c70f5c048">mbedtls.h</a></li>
 <li>ah_mbedtls_server_as_tcp_trans()&#160;:&#160;<a class="el" href="mbedtls_8h.html#ac1761bf2d966f1995f6dd5cddc7c69c9">mbedtls.h</a></li>
 <li>ah_mbedtls_server_init()&#160;:&#160;<a class="el" href="mbedtls_8h.html#ab69d6d0ed557dcaf9a6080fc6be44b08">mbedtls.h</a></li>
 <li>ah_mbedtls_server_term()&#160;:&#160;<a class="el" href="mbedtls_8h.html#a607401acb7db41d616d47ed5bf5e24b3">mbedtls.h</a></li>
+<li>AH_MBEDTLS_VERSION_MAJOR&#160;:&#160;<a class="el" href="mbedtls_8h.html#aa23e45e3fc76c3e7e0b1733686fe6ffe">mbedtls.h</a></li>
+<li>AH_MBEDTLS_VERSION_MINOR&#160;:&#160;<a class="el" href="mbedtls_8h.html#af17f2efb6be97043dd869edde7ed1982">mbedtls.h</a></li>
+<li>AH_MBEDTLS_VERSION_PATCH&#160;:&#160;<a class="el" href="mbedtls_8h.html#a465ac98f20cb8fb0a2d10c386a78f5ad">mbedtls.h</a></li>
+<li>AH_MBEDTLS_VERSION_STR&#160;:&#160;<a class="el" href="mbedtls_8h.html#a5c3c61d2330bc624bb8bad0ffd914b1f">mbedtls.h</a></li>
 </ul>
 </div><!-- contents -->
   <footer>Generated by <a href="https://doxygen.org">Doxygen</a> 1.9.5</footer>

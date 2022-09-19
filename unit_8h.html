@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <meta charset="utf-8">
   <meta name="generator" content="Doxygen 1.9.5"/>
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <title>ah_unit/include/ah/unit.h File Reference - Eclipse Arrowhead™ Core C Libraries</title>
@@ -15,22 +16,22 @@
 /* @license-end */
 </script>
   <script>
-      window.addEventListener("load", () => {
-          let contents = document.querySelector("body > div.contents");
-          if (!contents) {
-            return;
-          }
-          document.querySelectorAll("#top ul > li.current > a > span").forEach((selectedMenuItem) => {
-            contents.classList.add(selectedMenuItem.innerText.trim().toLowerCase().replace(/\s+/, "-"));
-          });
-        for (let i = contents.childNodes.length - 1; i >= 0; i -= 1) {
-          let childNode = contents.childNodes.item(i);
-          if ((childNode.nodeType === 3 && childNode.textContent.trim().length === 0)
-                  || (childNode.nodeType === 1 && childNode.classList.contains("textblock") && childNode.textContent.trim().length === 0)) {
-            childNode.remove();
-          }
-        }
+    window.addEventListener("load", () => {
+      let contents = document.querySelector("body > div.contents");
+      if (!contents) {
+        return;
+      }
+      document.querySelectorAll("#top ul > li.current > a > span").forEach((selectedMenuItem) => {
+        contents.classList.add(selectedMenuItem.innerText.trim().toLowerCase().replace(/\s+/, "-"));
       });
+      for (let i = contents.childNodes.length - 1; i >= 0; i -= 1) {
+        let childNode = contents.childNodes.item(i);
+        if ((childNode.nodeType === 3 && childNode.textContent.trim().length === 0)
+                || (childNode.nodeType === 1 && childNode.classList.contains("textblock") && childNode.textContent.trim().length === 0)) {
+          childNode.remove();
+        }
+      }
+    });
   </script>
   <link href="tabs.css" rel="stylesheet" type="text/css"/>
   <link href="DoxygenStyle.css" rel="stylesheet" type="text/css"/>
@@ -125,6 +126,22 @@ Macros</h2></td></tr>
 <tr class="memitem:a32ed04f294bf16069d2ecfbd7e9389a0"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="unit_8h.html#a32ed04f294bf16069d2ecfbd7e9389a0">AH_UNIT_CTX</a>&#160;&#160;&#160; ((<a class="el" href="structah__unit__ctx.html">ah_unit_ctx_t</a>) { .file = __FILE__, .line = __LINE__ })</td></tr>
 <tr class="memdesc:a32ed04f294bf16069d2ecfbd7e9389a0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Expands into a unit testing context.  <a href="unit_8h.html#a32ed04f294bf16069d2ecfbd7e9389a0">More...</a><br /></td></tr>
 <tr class="separator:a32ed04f294bf16069d2ecfbd7e9389a0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af5d4d08921c1e3fa4f154a0274ca23c2"><td class="memItemLeft" align="right" valign="top"><a id="af5d4d08921c1e3fa4f154a0274ca23c2" name="af5d4d08921c1e3fa4f154a0274ca23c2"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>AH_UNIT_VERSION_MAJOR</b>&#160;&#160;&#160;AH_I_UNIT_VERSION_MAJOR</td></tr>
+<tr class="memdesc:af5d4d08921c1e3fa4f154a0274ca23c2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Major version of the Unit library, represented by an unsigned integer literal. <br /></td></tr>
+<tr class="separator:af5d4d08921c1e3fa4f154a0274ca23c2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a54ba4f49c06e164f8b54c168ccc025a0"><td class="memItemLeft" align="right" valign="top"><a id="a54ba4f49c06e164f8b54c168ccc025a0" name="a54ba4f49c06e164f8b54c168ccc025a0"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>AH_UNIT_VERSION_MINOR</b>&#160;&#160;&#160;AH_I_UNIT_VERSION_MINOR</td></tr>
+<tr class="memdesc:a54ba4f49c06e164f8b54c168ccc025a0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Minor version of the Unit library, represented by an unsigned integer literal. <br /></td></tr>
+<tr class="separator:a54ba4f49c06e164f8b54c168ccc025a0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abf6a1279730056be630b6f7387f408b2"><td class="memItemLeft" align="right" valign="top"><a id="abf6a1279730056be630b6f7387f408b2" name="abf6a1279730056be630b6f7387f408b2"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>AH_UNIT_VERSION_PATCH</b>&#160;&#160;&#160;AH_I_UNIT_VERSION_PATCH</td></tr>
+<tr class="memdesc:abf6a1279730056be630b6f7387f408b2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Patch version of the Unit library, represented by an unsigned integer literal. <br /></td></tr>
+<tr class="separator:abf6a1279730056be630b6f7387f408b2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8fcf4a94bcf72722025c24f75bf407a4"><td class="memItemLeft" align="right" valign="top"><a id="a8fcf4a94bcf72722025c24f75bf407a4" name="a8fcf4a94bcf72722025c24f75bf407a4"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><b>AH_UNIT_VERSION_STR</b>&#160;&#160;&#160;AH_I_UNIT_VERSION_STR</td></tr>
+<tr class="memdesc:a8fcf4a94bcf72722025c24f75bf407a4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constant string representation of the Unit library version. <br /></td></tr>
+<tr class="separator:a8fcf4a94bcf72722025c24f75bf407a4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="typedef-members" name="typedef-members"></a>
 Typedefs</h2></td></tr>

@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <meta charset="utf-8">
   <meta name="generator" content="Doxygen 1.9.5"/>
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <title>ah_base/include/ah/alloc.h Source File - Eclipse Arrowhead™ Core C Libraries</title>
@@ -15,22 +16,22 @@
 /* @license-end */
 </script>
   <script>
-      window.addEventListener("load", () => {
-          let contents = document.querySelector("body > div.contents");
-          if (!contents) {
-            return;
-          }
-          document.querySelectorAll("#top ul > li.current > a > span").forEach((selectedMenuItem) => {
-            contents.classList.add(selectedMenuItem.innerText.trim().toLowerCase().replace(/\s+/, "-"));
-          });
-        for (let i = contents.childNodes.length - 1; i >= 0; i -= 1) {
-          let childNode = contents.childNodes.item(i);
-          if ((childNode.nodeType === 3 && childNode.textContent.trim().length === 0)
-                  || (childNode.nodeType === 1 && childNode.classList.contains("textblock") && childNode.textContent.trim().length === 0)) {
-            childNode.remove();
-          }
-        }
+    window.addEventListener("load", () => {
+      let contents = document.querySelector("body > div.contents");
+      if (!contents) {
+        return;
+      }
+      document.querySelectorAll("#top ul > li.current > a > span").forEach((selectedMenuItem) => {
+        contents.classList.add(selectedMenuItem.innerText.trim().toLowerCase().replace(/\s+/, "-"));
       });
+      for (let i = contents.childNodes.length - 1; i >= 0; i -= 1) {
+        let childNode = contents.childNodes.item(i);
+        if ((childNode.nodeType === 3 && childNode.textContent.trim().length === 0)
+                || (childNode.nodeType === 1 && childNode.classList.contains("textblock") && childNode.textContent.trim().length === 0)) {
+          childNode.remove();
+        }
+      }
+    });
   </script>
   <link href="tabs.css" rel="stylesheet" type="text/css"/>
   <link href="DoxygenStyle.css" rel="stylesheet" type="text/css"/>
@@ -104,23 +105,23 @@ var searchBox = new SearchBox("searchBox", "search/",'.html');
 <div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#ifndef AH_ALLOC_H_</span></div>
 <div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#define AH_ALLOC_H_</span></div>
 <div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span> </div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span><span class="preprocessor">#include &quot;<a class="code" href="conf_8h.html" title="Library configuration.">conf.h</a>&quot;</span></div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span> </div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno"><a class="line" href="alloc_8h.html#acf3a4492f083f0f4868f515f16441070">   30</a></span><span class="preprocessor">#define AH_PSIZE AH_CONF_PSIZE</span></div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span> </div>
-<div class="line"><a id="l00041" name="l00041"></a><span class="lineno"><a class="line" href="alloc_8h.html#af60bc3ffcf5977b5603888f9c70cc74a">   41</a></span><span class="preprocessor">#define ah_calloc(n, size) AH_CONF_CALLOC((n), (size))</span></div>
-<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span> </div>
-<div class="line"><a id="l00053" name="l00053"></a><span class="lineno"><a class="line" href="alloc_8h.html#a28b2cc0476e2976f7a3ca4e8f23a1938">   53</a></span><span class="preprocessor">#define ah_free(ptr) AH_CONF_FREE((ptr))</span></div>
-<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span> </div>
-<div class="line"><a id="l00062" name="l00062"></a><span class="lineno"><a class="line" href="alloc_8h.html#a026109a0711522c5144ecd324d1e64ff">   62</a></span><span class="preprocessor">#define ah_malloc(size) AH_CONF_MALLOC((size))</span></div>
-<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span> </div>
-<div class="line"><a id="l00074" name="l00074"></a><span class="lineno"><a class="line" href="alloc_8h.html#a911d4e66ad39e4007ef01aec5a0ec06a">   74</a></span><span class="preprocessor">#define ah_palloc() AH_CONF_PALLOC()</span></div>
-<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span> </div>
-<div class="line"><a id="l00085" name="l00085"></a><span class="lineno"><a class="line" href="alloc_8h.html#a8d6cccf58f7975d91679bbfbdf702c6d">   85</a></span><span class="preprocessor">#define ah_pfree(page) AH_CONF_PFREE((page))</span></div>
-<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span> </div>
-<div class="line"><a id="l00109" name="l00109"></a><span class="lineno"><a class="line" href="alloc_8h.html#a2648214e0896916bc9c91ff914b5adea">  109</a></span><span class="preprocessor">#define ah_realloc(ptr, size) AH_CONF_REALLOC((ptr), (size))</span></div>
-<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span> </div>
-<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span><span class="preprocessor">#include &quot;<a class="code" href="conf_8h.html" title="Library configuration.">conf.h</a>&quot;</span></div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span> </div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno"><a class="line" href="alloc_8h.html#acf3a4492f083f0f4868f515f16441070">   57</a></span><span class="preprocessor">#define AH_PSIZE AH_CONF_PSIZE</span></div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span> </div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno"><a class="line" href="alloc_8h.html#af60bc3ffcf5977b5603888f9c70cc74a">   71</a></span><span class="preprocessor">#define ah_calloc(n, size) AH_CONF_CALLOC((n), (size))</span></div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span> </div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno"><a class="line" href="alloc_8h.html#a28b2cc0476e2976f7a3ca4e8f23a1938">   83</a></span><span class="preprocessor">#define ah_free(ptr) AH_CONF_FREE((ptr))</span></div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span> </div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno"><a class="line" href="alloc_8h.html#a026109a0711522c5144ecd324d1e64ff">   92</a></span><span class="preprocessor">#define ah_malloc(size) AH_CONF_MALLOC((size))</span></div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span> </div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno"><a class="line" href="alloc_8h.html#a911d4e66ad39e4007ef01aec5a0ec06a">  104</a></span><span class="preprocessor">#define ah_palloc() AH_CONF_PALLOC()</span></div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span> </div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno"><a class="line" href="alloc_8h.html#a8d6cccf58f7975d91679bbfbdf702c6d">  116</a></span><span class="preprocessor">#define ah_pfree(page) AH_CONF_PFREE((page))</span></div>
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span> </div>
+<div class="line"><a id="l00149" name="l00149"></a><span class="lineno"><a class="line" href="alloc_8h.html#a2648214e0896916bc9c91ff914b5adea">  149</a></span><span class="preprocessor">#define ah_realloc(ptr, size) AH_CONF_REALLOC((ptr), (size))</span></div>
+<div class="line"><a id="l00150" name="l00150"></a><span class="lineno">  150</span> </div>
+<div class="line"><a id="l00151" name="l00151"></a><span class="lineno">  151</span><span class="preprocessor">#endif</span></div>
 </div><!-- fragment --></div><!-- contents -->
   <footer>Generated by <a href="https://doxygen.org">Doxygen</a> 1.9.5</footer>
 </body>

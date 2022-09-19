@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <meta charset="utf-8">
   <meta name="generator" content="Doxygen 1.9.5"/>
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <title>ah_base/include/ah/base.h Source File - Eclipse Arrowhead™ Core C Libraries</title>
@@ -15,22 +16,22 @@
 /* @license-end */
 </script>
   <script>
-      window.addEventListener("load", () => {
-          let contents = document.querySelector("body > div.contents");
-          if (!contents) {
-            return;
-          }
-          document.querySelectorAll("#top ul > li.current > a > span").forEach((selectedMenuItem) => {
-            contents.classList.add(selectedMenuItem.innerText.trim().toLowerCase().replace(/\s+/, "-"));
-          });
-        for (let i = contents.childNodes.length - 1; i >= 0; i -= 1) {
-          let childNode = contents.childNodes.item(i);
-          if ((childNode.nodeType === 3 && childNode.textContent.trim().length === 0)
-                  || (childNode.nodeType === 1 && childNode.classList.contains("textblock") && childNode.textContent.trim().length === 0)) {
-            childNode.remove();
-          }
-        }
+    window.addEventListener("load", () => {
+      let contents = document.querySelector("body > div.contents");
+      if (!contents) {
+        return;
+      }
+      document.querySelectorAll("#top ul > li.current > a > span").forEach((selectedMenuItem) => {
+        contents.classList.add(selectedMenuItem.innerText.trim().toLowerCase().replace(/\s+/, "-"));
       });
+      for (let i = contents.childNodes.length - 1; i >= 0; i -= 1) {
+        let childNode = contents.childNodes.item(i);
+        if ((childNode.nodeType === 3 && childNode.textContent.trim().length === 0)
+                || (childNode.nodeType === 1 && childNode.classList.contains("textblock") && childNode.textContent.trim().length === 0)) {
+          childNode.remove();
+        }
+      }
+    });
   </script>
   <link href="tabs.css" rel="stylesheet" type="text/css"/>
   <link href="DoxygenStyle.css" rel="stylesheet" type="text/css"/>
@@ -104,17 +105,34 @@ var searchBox = new SearchBox("searchBox", "search/",'.html');
 <div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#ifndef AH_BASE_H_</span></div>
 <div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#define AH_BASE_H_</span></div>
 <div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span> </div>
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="preprocessor">#include &quot;<a class="code" href="defs_8h.html" title="Platform, compiler, attribute and type definitions.">defs.h</a>&quot;</span></div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span> </div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno"><a class="line" href="base_8h.html#aec290d6053a14d9847234a9970f6979f">   20</a></span><a class="code hl_define" href="defs_8h.html#a4a00eaa653b79c27bff40d48d658f86f" title="Specified before a function declaration or definition to make it available when linking.">ah_extern</a> <span class="keyword">const</span> <span class="keywordtype">char</span>* <a class="code hl_function" href="base_8h.html#aec290d6053a14d9847234a9970f6979f" title="Gets human-readable representation of version of the Base library.">ah_base_lib_version_str</a>(<span class="keywordtype">void</span>);</div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span> </div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno"><a class="line" href="base_8h.html#a3c96c6bc2afa8d24405c7551f21c9322">   27</a></span><a class="code hl_define" href="defs_8h.html#a4a00eaa653b79c27bff40d48d658f86f" title="Specified before a function declaration or definition to make it available when linking.">ah_extern</a> <span class="keywordtype">unsigned</span> <span class="keywordtype">short</span> <a class="code hl_function" href="base_8h.html#a3c96c6bc2afa8d24405c7551f21c9322" title="Gets major version of the Base library.">ah_base_lib_version_major</a>(<span class="keywordtype">void</span>);</div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span> </div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno"><a class="line" href="base_8h.html#ab7a9f431f192345fd2b3e14a9506096c">   34</a></span><a class="code hl_define" href="defs_8h.html#a4a00eaa653b79c27bff40d48d658f86f" title="Specified before a function declaration or definition to make it available when linking.">ah_extern</a> <span class="keywordtype">unsigned</span> <span class="keywordtype">short</span> <a class="code hl_function" href="base_8h.html#ab7a9f431f192345fd2b3e14a9506096c" title="Gets minor version of the Base library.">ah_base_lib_version_minor</a>(<span class="keywordtype">void</span>);</div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span> </div>
-<div class="line"><a id="l00041" name="l00041"></a><span class="lineno"><a class="line" href="base_8h.html#a3c319da212d328204a99fd086f57e887">   41</a></span><a class="code hl_define" href="defs_8h.html#a4a00eaa653b79c27bff40d48d658f86f" title="Specified before a function declaration or definition to make it available when linking.">ah_extern</a> <span class="keywordtype">unsigned</span> <span class="keywordtype">short</span> <a class="code hl_function" href="base_8h.html#a3c319da212d328204a99fd086f57e887" title="Gets patch version of the Base library.">ah_base_lib_version_patch</a>(<span class="keywordtype">void</span>);</div>
-<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span> </div>
-<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="preprocessor">#if defined(__has_include)</span></div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="preprocessor"># if __has_include(&quot;internal/_base.gen&quot;</span>)</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="preprocessor">#  include &quot;internal/_base.gen&quot;</span></div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span><span class="preprocessor"># else</span></div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="preprocessor">#  define AH_BASE_COMMIT_STR    &quot;unknown&quot;</span></div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="preprocessor">#  define AH_BASE_PLATFORM_STR  &quot;unknown&quot;</span></div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><span class="preprocessor">#  define AH_BASE_VERSION_MAJOR 0u</span></div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span><span class="preprocessor">#  define AH_BASE_VERSION_MINOR 0u</span></div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span><span class="preprocessor">#  define AH_BASE_VERSION_PATCH 0u</span></div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span><span class="preprocessor">#  define AH_BASE_VERSION_STR   &quot;0.0.0&quot;</span></div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span><span class="preprocessor"># endif</span></div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span><span class="preprocessor">#else</span></div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span><span class="preprocessor"># include &quot;internal/_base.gen&quot;</span></div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span> </div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno"><a class="line" href="base_8h.html#a37dc85fc14dcde19474a4fa56d8e9641">   38</a></span><span class="preprocessor">#define AH_BASE_COMMIT_STR AH_I_BASE_COMMIT_STR</span></div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span> </div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno"><a class="line" href="base_8h.html#a8999e64a235f726ee79dbc859dc39103">   44</a></span><span class="preprocessor">#define AH_BASE_PLATFORM_STR AH_I_BASE_PLATFORM_STR</span></div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span> </div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno"><a class="line" href="base_8h.html#adcd8db8a34c8489a02b62f89dd1b7d2b">   50</a></span><span class="preprocessor">#define AH_BASE_VERSION_MAJOR AH_I_BASE_VERSION_MAJOR</span></div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span> </div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno"><a class="line" href="base_8h.html#afdc685c5773122fe37a12b46521d08f7">   56</a></span><span class="preprocessor">#define AH_BASE_VERSION_MINOR AH_I_BASE_VERSION_MINOR</span></div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span> </div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno"><a class="line" href="base_8h.html#a304246da6959d25bb1503b2323e5f3b9">   62</a></span><span class="preprocessor">#define AH_BASE_VERSION_PATCH AH_I_BASE_VERSION_PATCH</span></div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span> </div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno"><a class="line" href="base_8h.html#a95f4c1f71f1d863ac26485a521205398">   67</a></span><span class="preprocessor">#define AH_BASE_VERSION_STR AH_I_BASE_VERSION_STR</span></div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span> </div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span><span class="preprocessor">#endif</span></div>
 </div><!-- fragment --></div><!-- contents -->
   <footer>Generated by <a href="https://doxygen.org">Doxygen</a> 1.9.5</footer>
 </body>

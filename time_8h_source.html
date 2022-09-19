@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <meta charset="utf-8">
   <meta name="generator" content="Doxygen 1.9.5"/>
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <title>ah_base/include/ah/time.h Source File - Eclipse Arrowhead™ Core C Libraries</title>
@@ -15,22 +16,22 @@
 /* @license-end */
 </script>
   <script>
-      window.addEventListener("load", () => {
-          let contents = document.querySelector("body > div.contents");
-          if (!contents) {
-            return;
-          }
-          document.querySelectorAll("#top ul > li.current > a > span").forEach((selectedMenuItem) => {
-            contents.classList.add(selectedMenuItem.innerText.trim().toLowerCase().replace(/\s+/, "-"));
-          });
-        for (let i = contents.childNodes.length - 1; i >= 0; i -= 1) {
-          let childNode = contents.childNodes.item(i);
-          if ((childNode.nodeType === 3 && childNode.textContent.trim().length === 0)
-                  || (childNode.nodeType === 1 && childNode.classList.contains("textblock") && childNode.textContent.trim().length === 0)) {
-            childNode.remove();
-          }
-        }
+    window.addEventListener("load", () => {
+      let contents = document.querySelector("body > div.contents");
+      if (!contents) {
+        return;
+      }
+      document.querySelectorAll("#top ul > li.current > a > span").forEach((selectedMenuItem) => {
+        contents.classList.add(selectedMenuItem.innerText.trim().toLowerCase().replace(/\s+/, "-"));
       });
+      for (let i = contents.childNodes.length - 1; i >= 0; i -= 1) {
+        let childNode = contents.childNodes.item(i);
+        if ((childNode.nodeType === 3 && childNode.textContent.trim().length === 0)
+                || (childNode.nodeType === 1 && childNode.classList.contains("textblock") && childNode.textContent.trim().length === 0)) {
+          childNode.remove();
+        }
+      }
+    });
   </script>
   <link href="tabs.css" rel="stylesheet" type="text/css"/>
   <link href="DoxygenStyle.css" rel="stylesheet" type="text/css"/>
@@ -129,7 +130,7 @@ var searchBox = new SearchBox("searchBox", "search/",'.html');
 <div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span> </div>
 <div class="line"><a id="l00056" name="l00056"></a><span class="lineno"><a class="line" href="time_8h.html#a2141010d144279cd2b83ca429883d80f">   56</a></span><span class="keyword">typedef</span> int64_t <a class="code hl_typedef" href="time_8h.html#a2141010d144279cd2b83ca429883d80f" title="The difference between two ah_time instances, measured in nanoseconds.">ah_timediff_t</a>;</div>
 <div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span> </div>
-<div class="line"><a id="l00083" name="l00083"></a><span class="lineno"><a class="line" href="time_8h.html#a4f25b712cec7298026de5be5ad5997da">   83</a></span><a class="code hl_define" href="defs_8h.html#a4a00eaa653b79c27bff40d48d658f86f" title="Specified before a function declaration or definition to make it available when linking.">ah_extern</a> <a class="code hl_struct" href="structah__time.html" title="Reference to a point in time, measured from an arbitrary point in the past.">ah_time_t</a> <a class="code hl_function" href="time_8h.html#a4f25b712cec7298026de5be5ad5997da" title="Gets the current time, as reported by the platform.">ah_time_now</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno"><a class="line" href="time_8h.html#a4f25b712cec7298026de5be5ad5997da">   83</a></span><a class="code hl_define" href="defs_8h.html#a4a00eaa653b79c27bff40d48d658f86f" title="Specified before a function declaration or definition to make it available when linking.">ah_extern</a> <a class="code hl_struct" href="structah__time.html" title="Reference to a point in time, measured from an arbitrary point in the past.">ah_time_t</a> <a class="code hl_function" href="time_8h.html#a4f25b712cec7298026de5be5ad5997da" title="Gets the current monotonic time, as reported by the platform.">ah_time_now</a>(<span class="keywordtype">void</span>);</div>
 <div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span> </div>
 <div class="line"><a id="l00097" name="l00097"></a><span class="lineno"><a class="line" href="time_8h.html#a25e53e5fc1c91423f4586e0d0a28d380">   97</a></span><a class="code hl_define" href="defs_8h.html#a4a00eaa653b79c27bff40d48d658f86f" title="Specified before a function declaration or definition to make it available when linking.">ah_extern</a> <a class="code hl_typedef" href="defs_8h.html#a746483e29fbbad8cb71e1b3875763ae2" title="Signed integer type used to hold an error code.">ah_err_t</a> <a class="code hl_function" href="time_8h.html#a25e53e5fc1c91423f4586e0d0a28d380" title="Calculates the difference between the times a and b.">ah_time_diff</a>(<a class="code hl_struct" href="structah__time.html" title="Reference to a point in time, measured from an arbitrary point in the past.">ah_time_t</a> a, <a class="code hl_struct" href="structah__time.html" title="Reference to a point in time, measured from an arbitrary point in the past.">ah_time_t</a> b, <a class="code hl_typedef" href="time_8h.html#a2141010d144279cd2b83ca429883d80f" title="The difference between two ah_time instances, measured in nanoseconds.">ah_timediff_t</a>* diff);</div>
 <div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span> </div>
