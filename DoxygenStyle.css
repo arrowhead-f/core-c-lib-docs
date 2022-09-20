@@ -313,6 +313,7 @@ p {
     border-bottom-width: 0.25em;
     border-bottom-style: solid;
     line-height: 2em;
+    padding-bottom: 0.25em;
 }
 
 #top > .tabs2 > .tablist > li:hover {

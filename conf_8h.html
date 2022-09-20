@@ -53,7 +53,6 @@ var searchBox = new SearchBox("searchBox", "search/",'.html');
       <li><a href="index.html"><span>Overview</span></a></li>
       <li><a href="files.html"><span>Headers</span></a></li>
       <li><a href="annotated.html"><span>Data&#160;Structures</span></a></li>
-      <li><a href="globals.html"><span>Globals</span></a></li>
       <li><a href="examples.html"><span>Examples</span></a></li>
       <li>
         <div id="MSearchBox" class="MSearchBoxInactive">
@@ -111,10 +110,10 @@ var searchBox = new SearchBox("searchBox", "search/",'.html');
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="define-members" name="define-members"></a>
 Macros</h2></td></tr>
 <tr class="memitem:a19996360d443048866c0046ebc5cdcc3"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="conf_8h.html#a19996360d443048866c0046ebc5cdcc3">AH_CONF_CALLOC</a>&#160;&#160;&#160;calloc</td></tr>
-<tr class="memdesc:a19996360d443048866c0046ebc5cdcc3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Used C99 calloc() implementation.  <a href="conf_8h.html#a19996360d443048866c0046ebc5cdcc3">More...</a><br /></td></tr>
+<tr class="memdesc:a19996360d443048866c0046ebc5cdcc3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Used C99 <code>calloc()</code> implementation.  <a href="conf_8h.html#a19996360d443048866c0046ebc5cdcc3">More...</a><br /></td></tr>
 <tr class="separator:a19996360d443048866c0046ebc5cdcc3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3ad23dbb366fc5b79aa143d2e2618f58"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="conf_8h.html#a3ad23dbb366fc5b79aa143d2e2618f58">AH_CONF_FREE</a>&#160;&#160;&#160;free</td></tr>
-<tr class="memdesc:a3ad23dbb366fc5b79aa143d2e2618f58"><td class="mdescLeft">&#160;</td><td class="mdescRight">Used C99 free() implementation.  <a href="conf_8h.html#a3ad23dbb366fc5b79aa143d2e2618f58">More...</a><br /></td></tr>
+<tr class="memdesc:a3ad23dbb366fc5b79aa143d2e2618f58"><td class="mdescLeft">&#160;</td><td class="mdescRight">Used C99 <code>free()</code> implementation.  <a href="conf_8h.html#a3ad23dbb366fc5b79aa143d2e2618f58">More...</a><br /></td></tr>
 <tr class="separator:a3ad23dbb366fc5b79aa143d2e2618f58"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac022a0735ec61461df9951cdf2b90422"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="conf_8h.html#ac022a0735ec61461df9951cdf2b90422">AH_CONF_IOCP_COMPLETION_ENTRY_BUFFER_SIZE</a>&#160;&#160;&#160;128u</td></tr>
 <tr class="memdesc:ac022a0735ec61461df9951cdf2b90422"><td class="mdescLeft">&#160;</td><td class="mdescRight">[IOCP] The number I/O Completion Port <code>OVERLAPPED_ENTRY</code> instances to be part of the buffer used when polling for completed events.  <a href="conf_8h.html#ac022a0735ec61461df9951cdf2b90422">More...</a><br /></td></tr>
@@ -129,7 +128,7 @@ Macros</h2></td></tr>
 <tr class="memdesc:a339b7c415c5cb8b1ab4970ff9ecade26"><td class="mdescLeft">&#160;</td><td class="mdescRight">[KQueue] Default <a class="el" href="structah__loop.html" title="Event loop.">ah_loop</a> <code>capacity</code> for platforms relying on BSD Kernel Queue API.  <a href="conf_8h.html#a339b7c415c5cb8b1ab4970ff9ecade26">More...</a><br /></td></tr>
 <tr class="separator:a339b7c415c5cb8b1ab4970ff9ecade26"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac2d062d4332ea48573da34ee776e85a9"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="conf_8h.html#ac2d062d4332ea48573da34ee776e85a9">AH_CONF_MALLOC</a>&#160;&#160;&#160;malloc</td></tr>
-<tr class="memdesc:ac2d062d4332ea48573da34ee776e85a9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Used C99 malloc() implementation.  <a href="conf_8h.html#ac2d062d4332ea48573da34ee776e85a9">More...</a><br /></td></tr>
+<tr class="memdesc:ac2d062d4332ea48573da34ee776e85a9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Used C99 <code>malloc()</code> implementation.  <a href="conf_8h.html#ac2d062d4332ea48573da34ee776e85a9">More...</a><br /></td></tr>
 <tr class="separator:ac2d062d4332ea48573da34ee776e85a9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae4da26828f60519b05deb87631ad4a3f"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="conf_8h.html#ae4da26828f60519b05deb87631ad4a3f">AH_CONF_PALLOC</a>()&#160;&#160;&#160;<a class="el" href="conf_8h.html#ac2d062d4332ea48573da34ee776e85a9">AH_CONF_MALLOC</a>(<a class="el" href="conf_8h.html#a635d29d236e1757dfedb399a64ef3576">AH_CONF_PSIZE</a>)</td></tr>
 <tr class="memdesc:ae4da26828f60519b05deb87631ad4a3f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function used to allocate pages, as described in <a class="el" href="alloc_8h.html" title="Dynamic memory allocation.">alloc.h</a>.  <a href="conf_8h.html#ae4da26828f60519b05deb87631ad4a3f">More...</a><br /></td></tr>
@@ -141,7 +140,7 @@ Macros</h2></td></tr>
 <tr class="memdesc:a635d29d236e1757dfedb399a64ef3576"><td class="mdescLeft">&#160;</td><td class="mdescRight">The size of a page allocator page, in bytes.  <a href="conf_8h.html#a635d29d236e1757dfedb399a64ef3576">More...</a><br /></td></tr>
 <tr class="separator:a635d29d236e1757dfedb399a64ef3576"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6c8d793c98954aa8e1bf5894196f8c84"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="conf_8h.html#a6c8d793c98954aa8e1bf5894196f8c84">AH_CONF_REALLOC</a>&#160;&#160;&#160;realloc</td></tr>
-<tr class="memdesc:a6c8d793c98954aa8e1bf5894196f8c84"><td class="mdescLeft">&#160;</td><td class="mdescRight">Used C99 realloc() implementation.  <a href="conf_8h.html#a6c8d793c98954aa8e1bf5894196f8c84">More...</a><br /></td></tr>
+<tr class="memdesc:a6c8d793c98954aa8e1bf5894196f8c84"><td class="mdescLeft">&#160;</td><td class="mdescRight">Used C99 <code>realloc()</code> implementation.  <a href="conf_8h.html#a6c8d793c98954aa8e1bf5894196f8c84">More...</a><br /></td></tr>
 <tr class="separator:a6c8d793c98954aa8e1bf5894196f8c84"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac3e9b3d48b1c01cfdb8ced26bf7a506e"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="conf_8h.html#ac3e9b3d48b1c01cfdb8ced26bf7a506e">AH_CONF_URING_DEFAULT_CAPACITY</a>&#160;&#160;&#160;1024u</td></tr>
 <tr class="memdesc:ac3e9b3d48b1c01cfdb8ced26bf7a506e"><td class="mdescLeft">&#160;</td><td class="mdescRight">[io_uring] Default <a class="el" href="structah__loop.html" title="Event loop.">ah_loop</a> <code>capacity</code> for platforms relying on the Linux io_uring API.  <a href="conf_8h.html#ac3e9b3d48b1c01cfdb8ced26bf7a506e">More...</a><br /></td></tr>
@@ -160,7 +159,7 @@ Macros</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Used C99 calloc() implementation. </p>
+<p>Used C99 <code>calloc()</code> implementation. </p>
 <p >Allocates zeroed memory for arrays. </p>
 
 </div>
@@ -177,7 +176,7 @@ Macros</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Used C99 free() implementation. </p>
+<p>Used C99 <code>free()</code> implementation. </p>
 <p >Releases memory allocated via the functions specified by <code>AH_CONF_CALLOC</code> and <code>AH_CONF_MALLOC</code>. </p>
 
 </div>
@@ -262,7 +261,7 @@ Macros</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Used C99 malloc() implementation. </p>
+<p>Used C99 <code>malloc()</code> implementation. </p>
 <p >Allocates uninitialized chunks of memory. </p>
 
 </div>
@@ -333,7 +332,7 @@ Macros</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Used C99 realloc() implementation. </p>
+<p>Used C99 <code>realloc()</code> implementation. </p>
 <p >Reallocates previously allocated chunks of memory. </p>
 
 </div>

@@ -53,7 +53,6 @@ var searchBox = new SearchBox("searchBox", "search/",'.html');
       <li class="current"><a href="index.html"><span>Overview</span></a></li>
       <li><a href="files.html"><span>Headers</span></a></li>
       <li><a href="annotated.html"><span>Data&#160;Structures</span></a></li>
-      <li><a href="globals.html"><span>Globals</span></a></li>
       <li><a href="examples.html"><span>Examples</span></a></li>
       <li>
         <div id="MSearchBox" class="MSearchBoxInactive">
@@ -102,18 +101,18 @@ var searchBox = new SearchBox("searchBox", "search/",'.html');
 <li>They are designed to be able to run well on platforms ranging from smaller embedded systems having only microcontrollers and hundreds of kilobytes of RAM to high-end server solutions with several multicore CPUs and terabytes of RAM.</li>
 <li>They are under the stewardship of the <a href="https://arrowhead.eu/">Arrowhead Project</a>, which means that they will be planned, developed, bundled and distributed in ways that are beneficial primarily to the Arrowhead community.</li>
 </ol>
-<h1><a class="anchor" id="autotoc_md3"></a>
+<h1><a class="anchor" id="autotoc_md4"></a>
 Repository Organization</h1>
 <p >The Eclipse Arrowhead Core C libraries are all located in the <code>libraries</code> folder of the <a href="https://github.com/eclipse-arrowhead/core-c">core-c</a> project of the official Arrowhead framework <a href="https://github.com/eclipse-arrowhead">GitHub organization</a>. If you are reading this document on GitHub, it is located inside this <code>libraries</code> folder. The folder contains this document and configuration files at its root. Additionally, it contains a number of folders whose name start with <code>ah_</code>. Each of those folders contains its own Arrowhead library, complete with its own documentation and build files. If you are reading the generated <a href="https://doxygen.org">Doxygen</a> documentation, the documentation associated with each of these libraries are available via the <em>Headers</em> link in the main navigation menu. Some libraries depend on each other, while others can be used in isolation. In the few cases where they depend on third party libraries, it should be clearly documented. Most libraries depend on the <code>ah_base</code> library, directly or indirectly, which provides cross-platform networking, error management, and other similarly fundamental utilities.</p>
-<h1><a class="anchor" id="autotoc_md4"></a>
+<h1><a class="anchor" id="autotoc_md5"></a>
 Documentation</h1>
 <p >The generated <a href="https://doxygen.org">Doxygen</a> documentation is currently made available here:</p>
 <p ><a href="https://arrowhead-f.github.io/core-c-lib-docs">https://arrowhead-f.github.io/core-c-lib-docs</a></p>
 <p >You may compile the documentation yourself using <a href="https://doxygen.org">Doxygen</a> version 1.9.1 or later. From a command line, execute the <code>doxygen</code> command from within the <code>libraries</code> folder we introduced above. The generated HTML documentation is gathered into a folder named <code>doxygen-build</code> in the repository root directory. The <code>doxygen-build</code> folder will contain an <code>index.html</code> file, which presents the documentation.</p>
-<h1><a class="anchor" id="autotoc_md5"></a>
+<h1><a class="anchor" id="autotoc_md6"></a>
 Building and Installing</h1>
 <p >All official libraries are built and installed using <a href="https://cmake.org/">CMake</a>. Each library we provide is designed to be <em>linked statically</em>.</p>
-<h1><a class="anchor" id="autotoc_md6"></a>
+<h1><a class="anchor" id="autotoc_md7"></a>
 Platform and Compiler Support</h1>
 <p >We currently support the following platforms and compilers:</p>
 <table class="markdownTable">
@@ -127,6 +126,7 @@ Platform and Compiler Support</h1>
 <td class="markdownTableBodyLeft"><a href="https://docs.microsoft.com/en-us/windows/win32/api/">Win32</a>   </td><td class="markdownTableBodyNone">Windows 10 and later   </td><td class="markdownTableBodyLeft">MSVC++   </td></tr>
 </table>
 <p >*These versions of Darwin are used by macOS v10.12.0 and later, as well as by iOS 10.0.1 and later.</p>
+<p >If you want an additional platform to be supported, please refer to the section on <em>Porting</em> in the documentation for the <code>ah_base</code> library.</p>
 <table class="markdownTable">
 <tr class="markdownTableHead">
 <th class="markdownTableHeadLeft">Compiler   </th><th class="markdownTableHeadLeft">Supported versions    </th></tr>
@@ -139,7 +139,7 @@ Platform and Compiler Support</h1>
 </table>
 <p >*These versions of MSVC++ are provided by Microsoft Visual Studio version 17.0 and later.</p>
 <p >Only CPU architectures with two's complement signed integer operations are supported. This includes virtually all modern CPU architectures, including x86, ARM, RISC-V, MIPS, and so on.</p>
-<h1><a class="anchor" id="autotoc_md7"></a>
+<h1><a class="anchor" id="autotoc_md8"></a>
 Versioning</h1>
 <p >Libraries are versioned using a <code>MAJOR.MINOR.PATCH</code> schema. Each out of <code>MAJOR</code>, <code>MINOR</code> and <code>PATCH</code> is a non-negative integer. When a library is first created, its version is <code>0.0.0</code>. The three version integers are incremented as follows:</p>
 <ul>
@@ -150,10 +150,10 @@ Versioning</h1>
 <p >If <code>MAJOR</code> is incremented, both <code>MINOR</code> and <code>PATCH</code> are reset to <code>0</code>. If <code>MINOR</code> is incremented, only <code>PATCH</code> is reset to <code>0</code>.</p>
 <p >One exception to the above rules applies to <em>unreleased</em> libraries, which is to say that their developers are not ready to commit to API stability yet. In this case, the <code>MAJOR</code> version remains <code>0</code> and also breaking changes lead to <code>MINOR</code> being updated. Upon release, <code>MAJOR</code> is changed to <code>1</code> to reflect the commitment of the Arrowhead project to keep the library's API stable over time.</p>
 <p >Each library is versioned separately from all other libraries. If a library depends on a particular <a href="https://projects.eclipse.org/projects/iot.arrowhead">Arrowhead release</a>, that is declared as a dependency rather than being reflected in the library's own version.</p>
-<h2><a class="anchor" id="autotoc_md8"></a>
+<h2><a class="anchor" id="autotoc_md9"></a>
 No ABI Versioning</h2>
 <p >As all libraries are designed to be linked only statically, even on platforms where dynamic linking is possible, we do not provide any ABI stability guarantees. Not even between patch versions of our libraries.</p>
-<h1><a class="anchor" id="autotoc_md9"></a>
+<h1><a class="anchor" id="autotoc_md10"></a>
 Contributing</h1>
 <p >We welcome code contributions from everyone who agrees to sign the <a href="https://www.eclipse.org/legal/ECA.php">Eclipse Contributor Agreement (ECA)</a>. You are also very welcome to report bugs, ask questions or discuss other topics of relevance by <a href="https://github.com/eclipse-arrowhead/core-c/issues">creating GitHub issues</a> in the official Core C GitHub repository. Submitting GitHub issues does not require you to sign the ECA.</p>
 <p >If you wish to contribute code, please observe the following:</p>

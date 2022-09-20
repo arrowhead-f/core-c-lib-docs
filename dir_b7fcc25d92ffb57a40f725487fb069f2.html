@@ -53,7 +53,6 @@ var searchBox = new SearchBox("searchBox", "search/",'.html');
       <li><a href="index.html"><span>Overview</span></a></li>
       <li class="current"><a href="files.html"><span>Headers</span></a></li>
       <li><a href="annotated.html"><span>Data&#160;Structures</span></a></li>
-      <li><a href="globals.html"><span>Globals</span></a></li>
       <li><a href="examples.html"><span>Examples</span></a></li>
       <li>
         <div id="MSearchBox" class="MSearchBoxInactive">
@@ -105,7 +104,7 @@ var searchBox = new SearchBox("searchBox", "search/",'.html');
 <p >Transport Layer Security (TLS) is an important suite of standards used to form secure connections over untrusted media. It makes up part of what could be considered the foundation of the modern World Wide Web by being the security aspect of the HTTPS protocol. It is ubiquitous also in other areas, much due to the fact that standardizing and developing reliable cryptographic utilities is very difficult and costly.</p>
 <p >TLS can make use of the X.509 certificate standard for host identification, which is one important reason why TLS has become very prominent within the Arrowhead ecosystem.</p>
 <p >This library provides an <a class="el" href="structah__tcp__trans.html" title="TCP-based transport.">ah_tcp_trans</a> implementation relying on <a href="https://tls.mbed.org/">MbedTLS</a>, an open source implementation of TLS that targets both embedded platforms and more capable such. The functions provided by this library can be used to associate a certificate, private key and store of trusted root certificates with an <a class="el" href="structah__tcp__conn.html" title="TCP connection handle.">ah_tcp_conn</a> or <a class="el" href="structah__tcp__listener.html" title="TCP listener handle.">ah_tcp_listener</a>, either of which can be used as normal after such an association is successful. This library does not hide MbedTLS in any way, which means that it is up to you to configure the library as you like.</p>
-<h3><a class="anchor" id="autotoc_md1"></a>
+<h3><a class="anchor" id="autotoc_md2"></a>
 Dependencies</h3>
 <p >Building this library requires MBedTLS version 2.28.0 or later, or version 3.1.0 or later. If you have a working Internet connection, CMake will attempt to download and compile a suitable version of the library automatically. If, however, any version of MBedTLS is already installed and available on your system, that version will be used without any download being initiated. <b>Please note, however, that relying on automatically downloaded MBedTLS</b> <b>versions can be a security hazard.</b> New versions of MBedTLS often contain patches for discovered security vulnerabilities. The automatically downloaded version may not contain all relevant patches nor satisfy other security requirements you may have. The safe use of this library requires you to have access to properly reviewed, configured and managed versions of MBedTLS. Please get in contact with a security consultancy with MBedTLS experience if you do not have access to that competence yourself. </p>
 <table class="memberdecls">

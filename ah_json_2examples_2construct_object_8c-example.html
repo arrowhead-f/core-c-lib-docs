@@ -53,7 +53,6 @@ var searchBox = new SearchBox("searchBox", "search/",'.html');
       <li><a href="index.html"><span>Overview</span></a></li>
       <li><a href="files.html"><span>Headers</span></a></li>
       <li><a href="annotated.html"><span>Data&#160;Structures</span></a></li>
-      <li><a href="globals.html"><span>Globals</span></a></li>
       <li><a href="examples.html"><span>Examples</span></a></li>
       <li>
         <div id="MSearchBox" class="MSearchBoxInactive">
@@ -96,41 +95,76 @@ var searchBox = new SearchBox("searchBox", "search/",'.html');
   <div class="headertitle"><div class="title">ah_json/examples/construct_object.c</div></div>
 </div><!--header-->
 <div class="contents">
-<p >An example of how to construct a JSON representation using only C99 standard library functions.</p>
-<p >An example of how to construct a JSON representation using only C99 standard library functions.</p><dl class="section see"><dt>See also</dt><dd><a class="el" href="json_8h.html" title="JavaScript Object Notation (JSON) utilities.">ah_json/include/ah/json.h</a></dd></dl>
-<div class="fragment"><div class="line"><span class="comment">// SPDX-License-Identifier: EPL-2.0</span></div>
-<div class="line"> </div>
-<div class="line"><span class="preprocessor">#include &lt;stddef.h&gt;</span></div>
-<div class="line"><span class="preprocessor">#include &lt;stdio.h&gt;</span></div>
-<div class="line"><span class="preprocessor">#include &lt;stdlib.h&gt;</span></div>
-<div class="line"> </div>
-<div class="line"><span class="keywordtype">int</span> main(<span class="keywordtype">void</span>)</div>
-<div class="line">{</div>
-<div class="line">    <span class="keyword">const</span> <span class="keywordtype">char</span>* sensor_id = <span class="stringliteral">&quot;aa-xx-142b&quot;</span>;</div>
-<div class="line">    <span class="keywordtype">float</span> kelvin = 296.55f;</div>
-<div class="line"> </div>
-<div class="line">    <span class="keywordtype">char</span> buffer[128u];</div>
-<div class="line">    <span class="keywordtype">int</span> size = snprintf(buffer, <span class="keyword">sizeof</span>(buffer), <span class="stringliteral">&quot;{\&quot;sensor-id\&quot;:\&quot;%s\&quot;,\&quot;kelvin\&quot;:%f}&quot;</span>,</div>
-<div class="line">        sensor_id, kelvin);</div>
-<div class="line"> </div>
-<div class="line">    <span class="keywordflow">if</span> (size &lt; 0) {</div>
-<div class="line">        perror(NULL);</div>
-<div class="line">        exit(EXIT_FAILURE);</div>
-<div class="line">    }</div>
-<div class="line"> </div>
-<div class="line">    <span class="keywordflow">if</span> (((<span class="keywordtype">size_t</span>) size) &gt; <span class="keyword">sizeof</span>(buffer)) {</div>
-<div class="line">        fputs(<span class="stringliteral">&quot;buffer overflowed\n&quot;</span>, stderr);</div>
-<div class="line">        exit(EXIT_FAILURE);</div>
-<div class="line">    }</div>
-<div class="line"> </div>
-<div class="line">    <span class="comment">// `buffer` now contains a JSON object of size `res`. You may, for example,</span></div>
-<div class="line">    <span class="comment">// choose to send the contents of `buffer` over the Internet or some other</span></div>
-<div class="line">    <span class="comment">// network.</span></div>
-<div class="line"> </div>
-<div class="line">    printf(<span class="stringliteral">&quot;%.*s\n&quot;</span>, size, buffer); <span class="comment">// Prints `{&quot;sensor_name&quot;:&quot;aa-xx-142b&quot;,&quot;kelvin&quot;:296.55}`.</span></div>
-<div class="line"> </div>
-<div class="line">    exit(EXIT_SUCCESS);</div>
-<div class="line">}</div>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="json_8h.html" title="JavaScript Object Notation (JSON) utilities.">ah_json/include/ah/json.h</a></dd></dl>
+<div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="comment">// SPDX-License-Identifier: EPL-2.0</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span> </div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="comment">// An example of how to construct a JSON representation using C99 standard</span></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="comment">// library functions and our ah_json_str_escape() function.</span></div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span> </div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="preprocessor">#include &lt;<a class="code" href="err_8h.html" title="Error management.">ah/err.h</a>&gt;</span></div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="preprocessor">#include &lt;<a class="code" href="json_8h.html" title="JavaScript Object Notation (JSON) utilities.">ah/json.h</a>&gt;</span></div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="preprocessor">#include &lt;limits.h&gt;</span></div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="preprocessor">#include &lt;stddef.h&gt;</span></div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="preprocessor">#include &lt;stdio.h&gt;</span></div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="preprocessor">#include &lt;stdlib.h&gt;</span></div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="preprocessor">#include &lt;string.h&gt;</span></div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span> </div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="keywordtype">int</span> main(<span class="keywordtype">void</span>)</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>{</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>    <a class="code hl_typedef" href="defs_8h.html#a746483e29fbbad8cb71e1b3875763ae2" title="Signed integer type used to hold an error code.">ah_err_t</a> err;</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>    <span class="keywordtype">char</span> err_buf[128u];</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>    <span class="keyword">const</span> <span class="keywordtype">char</span>* err_ctx;</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span> </div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>    <span class="keyword">const</span> <span class="keywordtype">char</span>* sensor_id = <span class="stringliteral">&quot;aa-xx-142b&quot;</span>;</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>    <span class="keywordtype">float</span> kelvin = 296.55f;</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span> </div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>    <span class="comment">// Here, we assume that `sensor_id` may contain characters that must be</span></div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>    <span class="comment">// escaped before they can be part of a JSON message. If we had known that</span></div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>    <span class="comment">// `sensor_id` will never contain control characters, backslashes or double</span></div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>    <span class="comment">// quotes, we could have skipped escaping it.</span></div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span> </div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>    <span class="keywordtype">char</span> sensor_id_buf[32u];</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>    <span class="keywordtype">size_t</span> sensor_id_buf_length = <span class="keyword">sizeof</span>(sensor_id_buf);</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>    err = <a id="a0" name="a0"></a><a class="code hl_function" href="json_8h.html#a4ea19991f7a0ffd9bf4b089ee1892236" title="Substitutes any UTF-8 code point below 32, &quot; and \ with its corresponding JSON escape sequence and wr...">ah_json_str_escape</a>(sensor_id, strlen(sensor_id), sensor_id_buf, &amp;sensor_id_buf_length);</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>    <span class="keywordflow">if</span> (err != <a id="a1" name="a1"></a><a class="code hl_define" href="err_8h.html#af1346324d9368d43e1e103d395368306" title="No error.">AH_ENONE</a>) {</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>        err_ctx = <span class="stringliteral">&quot;ah_json_str_escape()&quot;</span>;</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>        <span class="keywordflow">goto</span> handle_err;</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>    }</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>    <span class="keywordflow">if</span> (sensor_id_buf_length &gt; INT_MAX) {</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>        err = <a id="a2" name="a2"></a><a class="code hl_define" href="err_8h.html#a8f0da4abff1f0f31740022d6939fb28d" title="Arithmetic argument outside accepted domain.">AH_EDOM</a>;</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>        err_ctx = <span class="stringliteral">&quot;ah_json_str_escape()&quot;</span>;</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>        <span class="keywordflow">goto</span> handle_err;</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>    }</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span> </div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>    <span class="comment">// We are not ready to produce the actual JSON object.</span></div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span> </div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>    <span class="keywordtype">char</span> out_buf[128u];</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>    <span class="keywordtype">int</span> size = snprintf(out_buf, <span class="keyword">sizeof</span>(out_buf), <span class="stringliteral">&quot;{\&quot;sensor-id\&quot;:\&quot;%.*s\&quot;,\&quot;kelvin\&quot;:%f}&quot;</span>,</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>        (<span class="keywordtype">int</span>) sensor_id_buf_length, sensor_id_buf, kelvin);</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span> </div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>    <span class="keywordflow">if</span> (size &lt; 0) {</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>        perror(NULL);</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>        exit(EXIT_FAILURE);</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>    }</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span> </div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>    <span class="keywordflow">if</span> (((<span class="keywordtype">size_t</span>) size) &gt; <span class="keyword">sizeof</span>(out_buf)) {</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>        fputs(<span class="stringliteral">&quot;out_buf overflowed\n&quot;</span>, stderr);</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>        exit(EXIT_FAILURE);</div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>    }</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span> </div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>    <span class="comment">// `out_buf` now contains a JSON object of size `res`. You may, for example,</span></div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>    <span class="comment">// choose to send the contents of `out_buf` over the Internet or some other</span></div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>    <span class="comment">// network. We print it just to make it visible if you run this program.</span></div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span> </div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>    printf(<span class="stringliteral">&quot;%.*s\n&quot;</span>, size, out_buf); <span class="comment">// Prints `{&quot;sensor_name&quot;:&quot;aa-xx-142b&quot;,&quot;kelvin&quot;:296.55}`.</span></div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span> </div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>    exit(EXIT_SUCCESS);</div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span> </div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>handle_err:</div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>    <a id="a3" name="a3"></a><a class="code hl_function" href="err_8h.html#abd464ae90e215314e9fca67df382dadd" title="Writes human-readable representation of err to buf.">ah_strerror_r</a>(err, err_buf, <span class="keyword">sizeof</span>(err_buf));</div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>    fprintf(stderr, <span class="stringliteral">&quot;%s failed: %s\n&quot;</span>, err_ctx, err_buf);</div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>    exit(EXIT_FAILURE);</div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>}</div>
 </div><!-- fragment --> </div><!-- contents -->
   <footer>Generated by <a href="https://doxygen.org">Doxygen</a> 1.9.5</footer>
 </body>
